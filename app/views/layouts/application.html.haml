@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChoiceItem
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .header
+      .headerLeft
+        = link_to "Category", "#", class:"headerLeftMenu"
+        = link_to "Random", "#", class:"headerLeftMenu"
+        = link_to "New Item", new_item_path, class:"headerLeftMenu"
+      =link_to "Choice Item", "/", class:"headerCenter"
+      .headerRight
+        %ul#menu
+          %li
+            %a{:href => "#",class: "headerRightParent"} ↓
+            %ul
+              %li
+                %a{:href => "#"} Sign up
+              %li
+                %a{:href => "#"} Login
+              %li
+                %a{:href => "#"} Log Out
+              %li
+                %a{:href => "#"} My Page
+    = yield
+    .footer
