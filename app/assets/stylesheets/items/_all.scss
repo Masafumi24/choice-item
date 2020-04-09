@@ -1,0 +1,119 @@
+$fontcolor:rgb(143, 142, 142);
+
+
+.header {
+  height: 120px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+
+  &Left {
+    height: 120px;
+    width: 270px;
+    text-align: center;
+
+    &Menu {
+      color: $fontcolor;
+      margin-left: 20px;
+      font-size: 15px;
+      line-height: 120px;
+    }
+
+    &Menu:hover{
+      color: black;
+    }
+  }
+
+  &Center {
+    color: $fontcolor;
+    height: 120px;
+    width: 300px;
+    font-size: 50px;
+    line-height: 120px;
+  }
+
+  &Right {
+    height: 120px;
+    width: 200px;
+    
+    #menu{
+      list-style-type: none;
+      height: 40px;
+      margin: 0 auto;
+      padding: 0;
+
+      .headerRightParent{
+        line-height: 5;
+
+      }
+    }
+    #menu li{
+      background-color: white;
+      position: relative;
+      width: 25%;
+      float: left;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+    }
+    #menu li a{
+      display: block;
+      margin: 0;
+      padding: 13px 0;
+      color: $fontcolor;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1;
+      text-decoration: none;
+
+    }
+    #menu li ul{
+      line-height: 120px;
+      list-style: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin: 0;
+      padding: 0;
+    }
+    #menu li:last-child ul{
+      left: -100%;
+      width: 100%
+    }
+    #menu li ul li{
+      overflow: hidden;
+      width: 200%;
+      height: 0;
+      color: black;
+      -moz-transition: .2s;
+      -webkit-transition: .2s;
+      -o-transition: .2s;
+      -ms-transition: .2s;
+      transition: .2s;
+    }
+    #menu li ul li a{
+      padding: 13px 15px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 2.5;
+    }
+    #menu li:hover > a{
+      color: black;
+    }
+    #menu li:hover ul li{
+      overflow: visible;
+      height: 38px;
+      border-bottom: 1px solid $fontcolor;
+    }
+    #menu li:hover ul li:first-child{
+      border-top: 0;
+    }
+    #menu li:hover ul li:last-child{
+      border-bottom: 0;
+    }
+    
+  }
+
+}
