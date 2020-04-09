@@ -1,2 +1,12 @@
 .indexContent
   .indexContentImage
+.indexNew
+  .indexNewTitle
+    .indexNewTitleText
+      New Item Chart
+    .indexNewTitleBtn
+      →
+  .indexNewItem
+    -@items.each do |item|
+      = link_to item_path(item.id) do
+        =image_tag item.images.first.src.to_s, class: "indexNewItemImage"

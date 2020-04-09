@@ -1,5 +1,5 @@
 .indexContent {
-  height: 100vh;
+  height: calc(100vh - 120px);
   box-sizing: border-box;
   padding: 20px 40px;
 
@@ -7,6 +7,45 @@
     background-image: url(IMG_2843.jpeg);
     background-size: cover;
     background-position: bottom;
-    height: calc(100% - 120px);
+    height: 95%;
+  }
+}
+// ---------ここまでがワンブロック目------------
+.indexNew {
+  height: 60vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  &Title {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 40px;
+    height: 10%;
+    width: 100%;
+    line-height: 1.5;
+    &Text {
+      font-size: 30px;
+      color: $fontcolor;
+    }
+    &Btn {
+      font-size: 30px;
+      color: $fontcolor;
+    }
+  }
+  &Item {
+    box-sizing: border-box;
+    height: 90%;
+    width: 100%;
+    padding: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    &Image {
+      display: inline;
+      height: 100%;
+      width: 25%;
+      object-fit: cover;
+    }
+    
   }
 }
