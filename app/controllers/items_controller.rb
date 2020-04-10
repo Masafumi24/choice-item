@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    category_id_params
     if @item.save
       redirect_to root_path
     else
@@ -34,6 +35,11 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, images_attributes: [:src])
+  end
+
+  def category_id_params
+    category = params.permit(:category_id)
+    @item[:category_id] = category[:category_id]
   end
 
 end
