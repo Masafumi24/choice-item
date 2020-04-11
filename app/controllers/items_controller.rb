@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @items = Item.includes(:images)
@@ -40,6 +41,10 @@ class ItemsController < ApplicationController
   def category_id_params
     category = params.permit(:category_id)
     @item[:category_id] = category[:category_id]
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 
 end
