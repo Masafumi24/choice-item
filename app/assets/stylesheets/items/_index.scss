@@ -36,7 +36,7 @@
 }
 @mixin indexBoxItem {
   box-sizing: border-box;
-  height: 90%;
+  height: 80%;
   width: 100%;
   padding: 20px;
   overflow-x: auto;
@@ -65,7 +65,6 @@
     &Image {
       @include indexBoxItemImage;
     }
-    
   }
 }
 .indexUser {
@@ -84,6 +83,5 @@
     &Image {
       @include indexBoxItemImage;
     }
-    
   }
 }

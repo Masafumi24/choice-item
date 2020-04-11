@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @items = Item.includes(:images)
+    @items = Item.includes(:images,:user)
   end
 
   def new
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, images_attributes: [:src])
+    params.require(:item).permit(:name, images_attributes: [:src]).merge(user_id: current_user.id)
   end
 
   def category_id_params

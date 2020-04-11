@@ -21,7 +21,7 @@
             %ul
               - if user_signed_in?
                 %li
-                  %a{:href => destroy_user_session_path, class: "logoutBtn"} Log Out
+                  %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
                 %li
                   %a{:href => "#",class: "MyPageBtn"} My Page
               - else
