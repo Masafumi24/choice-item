@@ -11,40 +11,78 @@
   }
 }
 // ---------ここまでがワンブロック目------------
-.indexNew {
+@mixin indexBox {
   height: 60vh;
   width: 100%;
   box-sizing: border-box;
   padding: 30px;
+}
+@mixin indexBoxTitle{
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 40px;
+  height: 10%;
+  width: 100%;
+  line-height: 1.5;
+}
+@mixin indexBoxTitleText {
+  font-size: 30px;
+  color: $fontcolor;
+}
+@mixin indexBoxTitleBtn {
+  font-size: 30px;
+  color: $fontcolor;
+}
+@mixin indexBoxItem {
+  box-sizing: border-box;
+  height: 90%;
+  width: 100%;
+  padding: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+@mixin indexBoxItemImage {
+  display: inline;
+  height: 100%;
+  width: 25%;
+  object-fit: cover;
+}
+
+.indexNew {
+  @include indexBox;
   &Title {
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding: 0 40px;
-    height: 10%;
-    width: 100%;
-    line-height: 1.5;
+    @include indexBoxTitle;
     &Text {
-      font-size: 30px;
-      color: $fontcolor;
+      @include indexBoxTitleText;
     }
     &Btn {
-      font-size: 30px;
-      color: $fontcolor;
+      @include indexBoxTitleBtn;
     }
   }
   &Item {
-    box-sizing: border-box;
-    height: 90%;
-    width: 100%;
-    padding: 20px;
-    overflow-x: auto;
-    white-space: nowrap;
+    @include indexBoxItem;
     &Image {
-      display: inline;
-      height: 100%;
-      width: 25%;
-      object-fit: cover;
+      @include indexBoxItemImage;
+    }
+    
+  }
+}
+.indexUser {
+  @include indexBox;
+  &Title {
+    @include indexBoxTitle;
+    &Text {
+      @include indexBoxTitleText;
+    }
+    &Btn {
+      @include indexBoxTitleBtn;
+    }
+  }
+  &Item {
+    @include indexBoxItem;
+    &Image {
+      @include indexBoxItemImage;
     }
     
   }
