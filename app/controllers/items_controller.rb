@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
     @items = Item.includes(:images, :user)
     if user_signed_in?
       @itemsuser = Item.find_by(user_id:(current_user.id))
+      @useritems = Item.where(user_id:(current_user.id))
     else
     end
   end
