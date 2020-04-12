@@ -67,3 +67,21 @@
     }
   }
 }
+.indexUser {
+  @include indexBox;
+  &Title {
+    @include indexBoxTitle;
+    &Text {
+      @include indexBoxTitleText;
+    }
+    &Btn {
+      @include indexBoxTitleBtn;
+    }
+  }
+  &Item {
+    @include indexBoxItem;
+    &Image {
+      @include indexBoxItemImage;
+    }
+  }
+}
