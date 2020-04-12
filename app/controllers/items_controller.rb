@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :random, only: [:index]
 
   def index
-    @items = Item.includes(:images,:user)
+    @items = Item.includes(:images, :user)
   end
 
   def new
@@ -30,6 +31,10 @@ class ItemsController < ApplicationController
     else
       redirect_to new_item_path
     end
+  end
+
+  def random
+    @random = Item.order("RAND()").limit(1)
   end
 
   private

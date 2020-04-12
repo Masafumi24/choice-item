@@ -1,15 +1,5 @@
 .indexContent
   .indexContentImage
-.indexUser
-  .indexUserTitle
-    .indexUserTitleText
-      New Item Chart
-    .indexUserTitleBtn
-      →
-  .indexUserItem
-    -@items.each do |item|
-      = link_to item_path(item.id) do
-        =image_tag item.images.first.src.to_s, class: "indexUserItemImage"
 .indexNew
   .indexNewTitle
     .indexNewTitleText
@@ -20,3 +10,5 @@
     -@items.each do |item|
       = link_to item_path(item.id) do
         =image_tag item.images.first.src.to_s, class: "indexNewItemImage"
+-@random.each do |item| 
+  =item.name
