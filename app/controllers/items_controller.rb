@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show]
+  before_action :random, only: [:index]
 
   def index
-    @items = Item.includes(:images)
+    @items = Item.includes(:images, :user)
   end
 
   def new
@@ -23,6 +25,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    category_id_params
     if @item.save
       redirect_to root_path
     else
@@ -30,10 +33,23 @@ class ItemsController < ApplicationController
     end
   end
 
+  def random
+    @random = Item.order("RAND()").limit(1)
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name, images_attributes: [:src])
+    params.require(:item).permit(:name, images_attributes: [:src]).merge(user_id: current_user.id)
+  end
+
+  def category_id_params
+    category = params.permit(:category_id)
+    @item[:category_id] = category[:category_id]
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 
 end
