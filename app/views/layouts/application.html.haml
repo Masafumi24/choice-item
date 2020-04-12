@@ -11,13 +11,22 @@
     .header
       .headerLeft
         = link_to "Category", "#", class:"headerLeftMenu"
-        = link_to "Random", "#", class:"headerLeftMenu"
+        - if request.path == root_path
+          = link_to "Random", "#", class:"headerLeftMenu", id: 'modalOpenBtn'
+          = link_to "", root_path(@item), id: 'itemRandomBtn'
+          #overlay
+            #modalWindow
+              .indexRandomItem
+                -@random.each do |item| 
+                  =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
+              %button#modalCloseBtn OK
+              %button#randomReturnBtn 選び直す       
         = link_to "New Item", new_item_path, class:"headerLeftMenu"
       =link_to "Choice Item", "/", class:"headerCenter"
       .headerRight
         %ul#menu
           %li
-            %a{:href => "#",class: "headerRightParent"} ↓
+            %a{:href => "#",class:"fas fa-angle-double-down"} 
             %ul
               - if user_signed_in?
                 %li
