@@ -1,0 +1,15 @@
+@mixin indexBoxItem {
+  box-sizing: border-box;
+  height: 80%;
+  width: 100%;
+  padding: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+@mixin indexBoxItemImage {
+  display: inline;
+  height: 100%;
+  width: 25%;
+  object-fit: cover;
+}
