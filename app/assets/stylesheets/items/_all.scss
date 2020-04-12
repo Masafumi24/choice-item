@@ -98,10 +98,12 @@ $fontcolor:rgb(143, 142, 142);
       margin: 0 auto;
       padding: 0;
 
-      .headerRightParent{
-        line-height: 5;
-
+      .fa-angle-double-down{
+        font-size: 30px;
+        color: $fontcolor;
+        line-height: 3;
       }
+
     }
     #menu li{
       background-color: white;
