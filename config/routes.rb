@@ -16,4 +16,6 @@ Rails.application.routes.draw do
       get :random
     end
   end
+  resources :users, only: [:show, :edit, :update]
+
 end

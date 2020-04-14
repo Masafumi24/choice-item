@@ -17,10 +17,13 @@
           #overlay
             #modalWindow
               .indexRandomItem
-                -@random.each do |item| 
-                  =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
+                - if @itemsuser.present?
+                  -@random.each do |item|
+                    =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
+                - else
+                  まだ投稿はありません
               %button#modalCloseBtn OK
-              %button#randomReturnBtn 選び直す       
+              %button#randomReturnBtn 選び直す     
         = link_to "New Item", new_item_path, class:"headerLeftMenu"
       =link_to "Choice Item", "/", class:"headerCenter"
       .headerRight
@@ -32,7 +35,7 @@
                 %li
                   %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
                 %li
-                  %a{:href => "#",class: "MyPageBtn"} My Page
+                  %a{:href => user_path(current_user.id),class: "MyPageBtn"} My Page
               - else
                 %li
                   %a{:href => new_user_registration_path, class: "signUpBtn"} Sign up
