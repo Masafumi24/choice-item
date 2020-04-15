@@ -1,0 +1,7 @@
+.itemShow
+  .itemShowBox
+    .itemShowBoxTitle
+      = @item.name
+    .itemShowBoxImage
+      -@item.images.each do |image|
+        =image_tag image.src.to_s,class: "itemShowBoxImageSrc"
