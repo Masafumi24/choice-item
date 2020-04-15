@@ -10,7 +10,7 @@
   %body
     .header
       .headerLeft
-        = link_to "Category", "#", class:"headerLeftMenu"
+        = link_to "Category", category_item_path('category_id'), class:"headerLeftMenu"
         - if request.path == root_path
           = link_to "Random", "#", class:"headerLeftMenu", id: 'modalOpenBtn'
           = link_to "", root_path(@item), id: 'itemRandomBtn'

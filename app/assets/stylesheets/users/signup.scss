@@ -1,0 +1,76 @@
+.userSignUp {
+  @include mainContent;
+  &Box {
+    @include centerContent;
+    &Title {
+      @include title;
+    }
+    &Field {
+      @include formField;
+      &Calum {
+        font-size: 20px;
+        color: $fontcolor;
+        position: absolute;
+        left: 0;
+      }
+      &Form {
+        @include form;
+      }
+    }
+  }
+}
+
+.userSign {
+  height: 20%;
+  width: 70%;
+  margin-top: 2%;
+  position: relative;
+  margin: 0 auto;
+  &ImageBox {
+    width: 70%;
+    display: flex;
+    margin-bottom: 5%;
+    &Name {
+
+      font-size: 25px;
+      color: $fontcolor;
+    }    
+  }
+  &Imagepre {
+    display: flex;
+    justify-content: space-between;
+    .fas {
+      height: 40px;
+      width: 40px;
+    }  
+
+    &File {
+      display: block;
+    }
+
+  }
+
+  #img_file{
+    display: block;
+  }
+}
+
+#img_prev {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin-bottom: 5%;
+}
+
+.SignSubmitArea {
+  width: 70%;
+  margin: 0 auto;
+  &Btn {
+    display: block;
+    background-color: rgb(236, 236, 236);
+    font-size: 25px;
+    color: $fontcolor;
+    padding: 20px 150px;
+    margin: 0 auto;
+  }
+}

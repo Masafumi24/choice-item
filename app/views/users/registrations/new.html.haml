@@ -1,27 +1,38 @@
-.contents.row
-  .container
-    %h2 Sign up
-    = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+.userSignUp
+  .userSignUpBox
+    .userSignUpBoxTitle
+      Sign up
+    = form_with model: @user, url: user_registration_path, id:'signBox',local: true do |f|
       = devise_error_messages!
-      .field
-        = f.label :nickname
-        %em (6 characters maximum)
+      .userSignUpBoxField
+        = f.label :nickname, class: "userSignUpBoxFieldCalum"
         %br/
-        = f.text_field :nickname, autofocus: true, maxlength: "6"
-      .field
-        = f.label :email
+        = f.text_field :nickname, autofocus: true, class: "userSignUpBoxFieldForm"
+      .userSignUpBoxField
+        = f.label :email, class: "userSignUpBoxFieldCalum"
         %br/
-        = f.email_field :email
-      .field
-        = f.label :password
+        = f.email_field :email, class: "userSignUpBoxFieldForm"
+      .userSignUpBoxField
+        = f.label :password, class: "userSignUpBoxFieldCalum"
         - if @validatable
           %em
             (#{@minimum_password_length} characters minimum)
         %br/
-        = f.password_field :password, autocomplete: "off"
-      .field
-        = f.label :password_confirmation
+        = f.password_field :password, autocomplete: "off", class: "userSignUpBoxFieldForm"
+      .userSignUpBoxField
+        = f.label :password_confirmation, class: "userSignUpBoxFieldCalum"
         %br/
-        = f.password_field :password_confirmation, autocomplete: "off"
-      .actions
-        = f.submit "Sign up"
+        = f.password_field :password_confirmation, autocomplete: "off", class: "userSignUpBoxFieldForm"
+      .userSign
+        = f.label :image, class: "userSignImage" do
+          .userSignImageBox
+            .userSignImageBoxName
+              Image
+          .userSignImagePre
+            =f.file_field :image, class: ".userSignImagePreFile", id: :img_file
+            - if @user.image.present?
+              = image_tag @user.image, id: :img_prev
+            - else
+              = image_tag "丸枠付きのカメラのアイコン素材 2.jpeg", id: :img_prev
+      .SignSubmitArea
+        = f.submit "Sign up", class: "SignSubmitAreaBtn"

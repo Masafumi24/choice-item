@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
     member do
       get :random
+      get :category
     end
   end
   resources :users, only: [:show, :edit, :update]

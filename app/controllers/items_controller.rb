@@ -49,6 +49,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def category
+    @category = Item.select('category_id')
+  end
+
   private
 
   def item_params
