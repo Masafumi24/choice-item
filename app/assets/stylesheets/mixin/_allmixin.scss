@@ -13,3 +13,41 @@
   width: 25%;
   object-fit: cover;
 }
+
+@mixin mainContent {
+  width: 100%;
+  background-color: rgb(236, 236, 236);
+  padding-top: 2%;
+}
+
+@mixin centerContent {
+  background-color: white;
+  width: 75%;
+  height: 90%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5% 0;
+}
+
+@mixin title{
+  font-size: 25px;
+  color: $fontcolor;
+  margin: 5% 0;
+}
+
+@mixin formField {
+  height: 100px;
+  width: 70%;
+  margin-top: 2%;
+  position: relative;
+  margin: 0 auto;
+}
+
+@mixin form {
+  margin-top: 18px;
+  height: 50px;
+  width: 100%;
+  padding: 0 16px;
+  font-size: 15px;
+}
+

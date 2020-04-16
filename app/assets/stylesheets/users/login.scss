@@ -1,0 +1,29 @@
+.login {
+  @include mainContent;
+  height: 90vh;
+  &Box {
+    @include centerContent;
+    &Title {
+      font-size: 25px;
+      color: $fontcolor;
+      margin: 5% 0;
+    }
+    &Chart {
+      &Field {
+        @include formField;
+        &Calum {
+          font-size: 20px;
+          color: $fontcolor;
+          position: absolute;
+          left: 0;  
+        }
+        &Form {
+          @include form;
+        }
+        .checkbox {
+          padding: 15px;
+        }
+      }
+    }
+  }
+}

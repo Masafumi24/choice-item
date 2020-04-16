@@ -1,16 +1,27 @@
 = form_with(model:@item,local:true) do |f|
-  = f.text_field :name
+  .itemNewBoxField
+    .itemNewBoxFieldCalum
+      Item Name
+    = f.text_field :name, class:"itemNewBoxFieldForm"
+  .newImageTitle
+    Image
   #image-box
-    = f.fields_for :images do |image|
-      .js-file_group{"data-index" => "#{image.index}"}
-        =image.file_field :src, class: 'js-file'
-      %span.js-remove 削除
-  .listing-form-box
-    .listing-product-detail__category
+    #imagePre
+      -if @item.persisted?
+        - @item.images.each_with_index do |image, i|
+          = image_tag image.src.to_s, data: { index: i }, class: 'smallImage', width: "300", height: '300'
+    .newImageBox
+      = f.fields_for :images do |image| 
+        .newImageBoxGroup{"data-index" => "#{image.index}"}
+          =image.file_field :src, class: 'newImageBoxGroupForm'
+          %span.newImageBoxGroupRemove 削除
+  .newImageTitle
+    Category
+  .CategoryBox
+    .CategoryBoxField
       = f.label 'カテゴリー', class: 'listing-default__label'
       %span.listing-default--require 必須
       .listing-select-wrapper
         .listing-select-wrapper__box
           = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-          %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-  = f.submit
+  = f.submit class: "newItemSubmit", value: "New Item Create"

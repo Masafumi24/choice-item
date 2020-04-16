@@ -1,0 +1,25 @@
+.itemShow{
+  @include mainContent;
+  &Box{
+    @include centerContent;
+    &Title{
+      @include title;
+      margin-bottom: 2%;
+    }
+    &Image {
+      text-align: center;
+      width: 620px;
+      box-sizing: border-box;
+      overflow-x: auto;
+      white-space: nowrap;
+      margin: 0 auto;
+      &Src {
+        height: 600px;
+        width: 600px;
+        object-fit: contain;
+        margin-left: 20px;
+      }
+    }
+
+  }
+}

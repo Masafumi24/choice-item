@@ -1,0 +1,27 @@
+.myPage
+  .myPageBox
+    .myPageBoxTitle
+      MyPage
+    .myPageBoxStatus
+      .myPageBoxStatusName
+        = @user.nickname
+      .myPageBoxStatusImage
+        - if @user.image.present?
+          = image_tag @user.image.url, class: "myPageBoxStatusImageSrc"
+        - else
+          = image_tag "丸枠付きのカメラのアイコン素材 2.jpeg", class: "myPageBoxStatusImageSrc"
+      - if @useritems.present?
+        .myPageBoxStatusItem
+          .myPageBoxStatusItemTitle
+            -if @user.id == current_user.id
+              My Item Chart
+            -else
+              = "#{@user.nickname}　さんのアイテム"
+          .myPageBoxStatusItemChart
+            - @useritems.each do |item|
+              = link_to item_path(item.id) do
+                = image_tag item.images.first.src.to_s, class: "myPageBoxStatusItemChartImage"
+      -else
+        
+%img{:src => "<haml_loud"}/
+@user.image  class = "icon_image"&gt;

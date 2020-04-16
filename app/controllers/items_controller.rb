@@ -38,8 +38,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def random
-    @random = Item.order("RAND()").limit(1)
+    if user_signed_in?
+      @random = Item.where(user_id:(current_user.id)).order("RAND()").limit(1)
+    else
+    end
+  end
+
+  def category
+    @category = Item.select('category_id')
   end
 
   private
