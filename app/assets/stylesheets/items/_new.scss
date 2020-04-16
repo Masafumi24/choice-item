@@ -1,0 +1,48 @@
+.itemNew{
+  @include mainContent;
+  &Box  {
+    @include centerContent;
+    &Title {
+      @include title;
+    }
+    &Field {
+      @include formField;
+      &Calum {
+        font-size: 20px;
+        color: $fontcolor;
+        position: absolute;
+        left: 0;
+      }
+      &Form {
+        @include form;
+        margin-top: 5%;
+      }
+    }
+    .newImageTitle {
+      font-size: 20px;
+      color: $fontcolor;
+      text-align: left;
+      width: 70%;
+      margin: 0 auto;
+    }
+    #image-box {
+      padding-top: 5%;
+      width: 70%;
+      margin: 0 auto;
+      .newImageBox {
+        width: 100%;
+        text-align: left;
+        margin-top: 5%;
+        &Group {
+          display: flex;
+          &Form {
+            text-align: left, bottom;
+          }
+          &Remove {
+            text-align: left, bottom;
+          }
+        }
+      }
+    }
+  }
+}
