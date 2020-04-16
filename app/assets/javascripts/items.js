@@ -1,35 +1,3 @@
-//   $(function(){
-//   const buildFileField = (index)=> {
-//     const html = `<div class="newImageBox"><div data-index="${index}" class="newImageBoxGroup">
-//                     <input class="newImageBoxGroupForm" type="file"
-//                     name="item[images_attributes][${index}][src]"
-//                     id="item_images_attributes_${index}_src"><br>
-//                     <div class="newImageBoxGroupRemove">削除</div>
-//                   </div></div>`;
-//     return html;
-//   }
-//   const buildImg = (index, url)=> {
-//     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
-//     return html;
-//   }
-
-//   // file_fieldのnameに動的なindexをつける為の配列
-//   let fileIndex = [1,2,3,4,5];
-
-//   $('#image-box').on('change', '.newImageBoxGroupForm', function(e) {
-//     // fileIndexの先頭の数字を使ってinputを作る
-//     $('#image-box').append(buildFileField(fileIndex[0]));
-//     fileIndex.shift();
-//     // 末尾の数に1足した数を追加する
-//     fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
-//   });
-
-//   $('#image-box').on('click', '.newImageBoxGroupRemove', function() {
-//     $(this).parent().remove();
-//     // 画像入力欄が0個にならないようにしておく
-//     if ($('.newImageBoxGroupForm').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
-//   });
-// });
   $(function(){
   const buildFileField = (index)=> {
     const html = `<div class="newImageBox"><div data-index="${index}" class="newImageBoxGroup">

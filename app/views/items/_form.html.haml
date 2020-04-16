@@ -9,18 +9,19 @@
     #imagePre
       -if @item.persisted?
         - @item.images.each_with_index do |image, i|
-          = image_tag image.src.to_s, data: { index: i }, width: "100", height: '100'
+          = image_tag image.src.to_s, data: { index: i }, class: 'smallImage', width: "300", height: '300'
     .newImageBox
       = f.fields_for :images do |image| 
         .newImageBoxGroup{"data-index" => "#{image.index}"}
           =image.file_field :src, class: 'newImageBoxGroupForm'
           %span.newImageBoxGroupRemove 削除
-  .listing-form-box
-    .listing-product-detail__category
+  .newImageTitle
+    Category
+  .CategoryBox
+    .CategoryBoxField
       = f.label 'カテゴリー', class: 'listing-default__label'
       %span.listing-default--require 必須
       .listing-select-wrapper
         .listing-select-wrapper__box
           = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-          %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
-  = f.submit
+  = f.submit class: "newItemSubmit", value: "New Item Create"

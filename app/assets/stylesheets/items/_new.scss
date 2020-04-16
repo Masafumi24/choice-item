@@ -1,5 +1,6 @@
 .itemNew{
   @include mainContent;
+  padding-bottom: 10%;
   &Box  {
     @include centerContent;
     &Title {
@@ -29,20 +30,48 @@
       padding-top: 5%;
       width: 70%;
       margin: 0 auto;
+      text-align: left;
       .newImageBox {
         width: 100%;
         text-align: left;
         margin-top: 5%;
         &Group {
           display: flex;
+          margin-bottom: 5%;
           &Form {
             text-align: left, bottom;
+            color: $fontcolor;
           }
           &Remove {
             text-align: left, bottom;
+            color: $fontcolor;
           }
         }
       }
+      #imagePre {
+        .smallImage {
+          text-align: left;
+        }
+      }
+    }
+    .CategoryBoxField{
+      color: $fontcolor;
+      .listing-select-wrapper__box--select {
+        color: $fontcolor;
+        height: 50px;
+        width: 70%;
+        font-size: 15px;
+        margin-top: 10px;    
+      }
+    
     }
   }
+}
+.newItemSubmit {
+  margin-top: 5%;
+  background-color: rgb(145, 237, 240);
+  width: 70%;
+  padding: 15px;
+  color: $fontcolor;
+  font-size: 15px;
 }
