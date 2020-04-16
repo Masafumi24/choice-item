@@ -15,13 +15,43 @@
         .newImageBoxGroup{"data-index" => "#{image.index}"}
           =image.file_field :src, class: 'newImageBoxGroupForm'
           %span.newImageBoxGroupRemove 削除
-  .newImageTitle
-    Category
-  .CategoryBox
-    .CategoryBoxField
-      = f.label 'カテゴリー', class: 'listing-default__label'
-      %span.listing-default--require 必須
-      .listing-select-wrapper
+  -if controller_name == "items" && action_name == "new"
+    .newImageTitle
+      Category
+    .CategoryBox
+      .CategoryBoxField
+        = f.label 'カテゴリー', class: 'listing-default__label'
+        %span.listing-default--require 必須
+        .listing-select-wrapper
+          .listing-select-wrapper__box
+            = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+    = f.submit class: "newItemSubmit", value: "New Item Create"
+  -if controller_name == "items" && action_name == "edit"
+    .newImageTitle
+      Category
+    .CategoryBox
+      .CategoryBoxField
+        = f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+      #children_wrapper.listing-select-wrapper__added
         .listing-select-wrapper__box
-          = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-  = f.submit class: "newItemSubmit", value: "New Item Create"
+          = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'listing-select-wrapper__box--select', id: 'child_category', name: "category_id"}
+          %option{"data-category" => "---", :value => "---"}
+      #grandchildren_wrapper.listing-select-wrapper__added
+        .listing-select-wrapper__box
+          = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category', name: "category_id"}
+          %option{"data-category" => "---", :value => "---"}
+
+
+
+
+  -#         .listing-select-wrapper
+  -#       .listing-select-wrapper__box
+  -#         = f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+  -# #children_wrapper.listing-select-wrapper__added
+  -#   .listing-select-wrapper__box
+  -#     = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'listing-select-wrapper__box--select', id: 'child_category', name: "category_id"}
+  -#     %option{"data-category" => "---", :value => "---"}
+  -# #grandchildren_wrapper.listing-select-wrapper__added
+  -#   .listing-select-wrapper__box
+  -#     = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'listing-select-wrapper__box--select', id: 'grandchild_category', name: "category_id"}
+  -#     %option{"data-category" => "---", :value => "---"}
