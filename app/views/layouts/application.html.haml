@@ -11,7 +11,7 @@
     .header
       .headerLeft
         = link_to "Category", category_item_path('category_id'), class:"headerLeftMenu"
-        - if request.path == root_path
+        - if controller.controller_name == 'items' && controller.action_name == 'index'
           = link_to "Random", "#", class:"headerLeftMenu", id: 'modalOpenBtn'
           = link_to "", root_path(@item), id: 'itemRandomBtn'
           #overlay
@@ -31,7 +31,13 @@
           %li
             %a{:href => "#",class:"fas fa-angle-double-down"} 
             %ul
-              - if user_signed_in?
+              -if controller.controller_name == 'items' && controller.action_name == 'show' && current_user.id == @item.user_id
+                %li
+                  %a{:href => edit_item_path(@item.id), class: "logoutBtn"} Edit
+                %li
+                  -# %a{:href => "/items/#{@item.id}", method: :delete, class: "MyPageBtn"}  Delete
+                  =link_to "Delete","/items/#{@item.id}", method: :delete, class: "MyPageBtn"
+              - elsif user_signed_in?
                 %li
                   %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
                 %li
@@ -41,6 +47,5 @@
                   %a{:href => new_user_registration_path, class: "signUpBtn"} Sign up
                 %li
                   %a{:href => user_session_path, class: "logInBtn"} Login
-
     = yield
     .footer
