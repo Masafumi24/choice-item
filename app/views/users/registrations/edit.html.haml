@@ -37,7 +37,7 @@
 .userSignUp
   .userSignUpBox
     .userSignUpBoxTitle
-      Sign up
+      ユーザー情報編集
     = form_with model: @user, url: user_registration_path, id:'signBox',local: true do |f|
       = devise_error_messages!
       .userSignUpBoxField
