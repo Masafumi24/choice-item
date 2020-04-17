@@ -11,7 +11,7 @@
     .header
       .headerLeft
         = link_to "Category", category_item_path('category_id'), class:"headerLeftMenu"
-        - if request.path == root_path
+        - if controller.controller_name == 'items' && controller.action_name == 'index'
           = link_to "Random", "#", class:"headerLeftMenu", id: 'modalOpenBtn'
           = link_to "", root_path(@item), id: 'itemRandomBtn'
           #overlay
@@ -29,9 +29,25 @@
       .headerRight
         %ul#menu
           %li
-            %a{:href => "#",class:"fas fa-angle-double-down"} 
+            - if user_signed_in? && @user.image.present?
+              =link_to "#" do
+                =image_tag @user.image.to_s, class:"iconImageSmall"
+            -else
+              %a{:href => "#",class:"fas fa-angle-double-down"} 
             %ul
-              - if user_signed_in?
+              -if user_signed_in? && controller.controller_name == 'items' && controller.action_name == 'show' && current_user.id == @item.user_id
+                %li
+                  %a{:href => edit_item_path(@item.id), class: "logoutBtn"} Edit
+                %li
+                  =link_to "Delete","/items/#{@item.id}", method: :delete, class: "MyPageBtn"
+              -elsif controller.controller_name == 'users' && controller.action_name == 'show' && current_user.id == @user.id
+                %li
+                  %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
+                %li
+                  %a{:href => user_path(current_user.id),class: "MyPageBtn"} My Page
+                %li
+                  =link_to "User Edit",edit_user_registration_path(current_user.id),class: "MyPageBtn"
+              - elsif user_signed_in?
                 %li
                   %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
                 %li
@@ -41,6 +57,5 @@
                   %a{:href => new_user_registration_path, class: "signUpBtn"} Sign up
                 %li
                   %a{:href => user_session_path, class: "logInBtn"} Login
-
     = yield
     .footer

@@ -13,11 +13,31 @@
       overflow-x: auto;
       white-space: nowrap;
       margin: 0 auto;
+      .fa-arrow-circle-right {
+        position: absolute;
+        right: 25%;
+        top: 75%;
+        font-size: 30px;
+        color: $fontcolor;
+      }
       &Src {
         height: 600px;
         width: 600px;
         object-fit: contain;
-        margin-left: 20px;
+        // margin-left: px;
+      }
+    }
+    &Category {
+      width: 70%;
+      margin: 0 auto;
+      &Title {
+        @include title;
+        margin-top: 0;
+      }
+      &Name {
+        color: $fontcolor;
+        margin-bottom: 2%;
+        font-size: 20px;
       }
     }
 

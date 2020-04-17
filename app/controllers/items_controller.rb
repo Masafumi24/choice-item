@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :random, only: [:index]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :set_user, only: [:index, :new, :show, :edit, :category]
+  before_action :correct_user, only: [:edit, :update ,:destroy]
+
 
   def index
     @items = Item.includes(:images, :user)
@@ -38,8 +42,40 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item.destroy
+    redirect_to root_path 
+  end
+
   def show
-    @item = Item.find(params[:id])
+  end
+
+  def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+  end
+
+  def update
+    category_id_params
+    if @item.update(item_params)
+      redirect_to root_path
+    else 
+      redirect_to edit_item_path
+    end
   end
 
   def random
@@ -56,7 +92,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, images_attributes: [:src]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def category_id_params
@@ -66,6 +102,23 @@ class ItemsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def set_user
+    if user_signed_in?
+      @user = User.find(current_user.id)
+    end
+  end
+
+  def correct_user
+    @current_user_items = current_user.items.find_by(id: params[:id])
+      unless @current_user_items
+        redirect_to root_url
+      end
   end
 
 end

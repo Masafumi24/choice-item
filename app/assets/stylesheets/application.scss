@@ -3,9 +3,15 @@
 @import "font-awesome";
 @import 'mixin/allmixin';
 @import 'items/all';
+.iconImageSmall {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}
 @import 'items/index';
 @import 'items/show';
 @import 'items/new';
+@import 'items/edit';
 @import 'users/signup';
 @import 'users/login';
 @import 'users/mypage';
