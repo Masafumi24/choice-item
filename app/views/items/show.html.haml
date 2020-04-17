@@ -3,5 +3,16 @@
     .itemShowBoxTitle
       = @item.name
     .itemShowBoxImage
+      -if @item.images.length >= 2
+        %i.fas.fa-arrow-circle-right
       -@item.images.each do |image|
         =image_tag image.src.to_s,class: "itemShowBoxImageSrc"
+    .itemShowBoxCategory
+      .itemShowBoxCategoryTitle
+        カテゴリー
+      .itemShowBoxCategoryName
+        = @item.category.parent.parent.name
+      .itemShowBoxCategoryName
+        = @item.category.parent.name
+      .itemShowBoxCategoryName
+        = @item.category.name

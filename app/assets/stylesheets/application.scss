@@ -3,6 +3,11 @@
 @import "font-awesome";
 @import 'mixin/allmixin';
 @import 'items/all';
+.iconImageSmall {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}
 @import 'items/index';
 @import 'items/show';
 @import 'items/new';
