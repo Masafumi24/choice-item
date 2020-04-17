@@ -70,6 +70,13 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
+    category_id_params
+    if @item.update(item_params)
+      redirect_to root_path
+    else 
+      redirect_to edit_item_path
+    end
   end
 
   def random
@@ -86,7 +93,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, images_attributes: [:src]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def category_id_params
