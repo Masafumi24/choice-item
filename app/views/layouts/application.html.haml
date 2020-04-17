@@ -42,7 +42,7 @@
                 %li
                   %a{:href => user_path(current_user.id),class: "MyPageBtn"} My Page
                 %li
-                  =link_to "User Edit",edit_user_path(current_user.id),class: "MyPageBtn"
+                  =link_to "User Edit",edit_user_registration_path(current_user.id),class: "MyPageBtn"
               - elsif user_signed_in?
                 %li
                   %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
