@@ -79,7 +79,7 @@ class ItemsController < ApplicationController
   end
 
   def random
-    if user_signed_in?
+    if user_signed_in? && @items.present?
       # @random = Item.where(user_id:(current_user.id)).order("RAND()").limit(1)
       @random_spring = Item.where(user_id:(current_user.id),spring:present?).order("RAND()").limit(1)
       @random_summer = Item.where(user_id:(current_user.id),summer:present?).order("RAND()").limit(1)
