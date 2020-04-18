@@ -8,15 +8,22 @@
     }
     &Field {
       @include formField;
+      margin-bottom: 5%;
       &Calum {
         font-size: 20px;
         color: $fontcolor;
-        position: absolute;
-        left: 0;
+        text-align: left;
       }
       &Form {
         @include form;
         margin-top: 5%;
+      }
+      &Area {
+        margin-top: 18px;
+        height: 100px;
+        width: 100%;
+        padding: 0 16px;
+        font-size: 15px;
       }
     }
     .newImageTitle {

@@ -3,6 +3,21 @@
     .itemNewBoxFieldCalum
       Item Name
     = f.text_field :name, class:"itemNewBoxFieldForm"
+  .itemNewBoxField
+    .itemNewBoxFieldCalum
+      アイテム紹介
+    = f.text_area :status, class:"itemNewBoxFieldArea"
+  .itemNewBoxField
+    .itemNewBoxFieldCalum
+      ブランド
+    = f.text_field :brand, class:"itemNewBoxFieldForm"
+  .itemNewBoxField
+    .itemNewBoxFieldCalum
+      季節
+    = f.check_box :spring, {} , 1, nil
+    = f.check_box :summer, {} , 1, nil
+    = f.check_box :autumn, {} , 1, nil
+    = f.check_box :winter, {} , 1, nil
   .newImageTitle
     Image
   #image-box
