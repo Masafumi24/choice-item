@@ -1,25 +1,40 @@
 = form_with(model:@item,local:true) do |f|
   .itemNewBoxField
     .itemNewBoxFieldCalum
-      Item Name
+      アイテム名
+    %span.listing-default--require
+      ※必須
     = f.text_field :name, class:"itemNewBoxFieldForm"
   .itemNewBoxField
     .itemNewBoxFieldCalum
       アイテム紹介
+    %span.listing-default--require
+      ※任意
     = f.text_area :status, class:"itemNewBoxFieldArea"
   .itemNewBoxField
     .itemNewBoxFieldCalum
       ブランド
+    %span.listing-default--require
+      ※任意
     = f.text_field :brand, class:"itemNewBoxFieldForm"
   .itemNewBoxField
     .itemNewBoxFieldCalum
       季節
-    = f.check_box :spring, {} , 1, nil
-    = f.check_box :summer, {} , 1, nil
-    = f.check_box :autumn, {} , 1, nil
-    = f.check_box :winter, {} , 1, nil
+    %span.listing-default--require
+      ※ランダム選択する場合は必ずチェック入れてください（複数可）
+      .itemNewBoxFieldCheck
+        = f.check_box :spring, {id:'box1'} , 1, nil
+        %label{:for => "box1"} 春服
+        = f.check_box :summer, {id:'box2'} , 1, nil
+        %label{:for => "box2"} 夏服
+        = f.check_box :autumn, {id:'box3'} , 1, nil
+        %label{:for => "box3"} 秋服
+        = f.check_box :winter, {id:'box4'} , 1, nil
+        %label{:for => "box4"} 冬服
   .newImageTitle
-    Image
+    アイテム画像
+  %span.listing-default--require
+    ※必須（複数可）
   #image-box
     #imagePre
       -if @item.persisted?
@@ -38,7 +53,7 @@
           .newImageBoxGroupRemove 削除
   -if controller_name == "items" && action_name == "new"
     .newImageTitle
-      Category
+      カテゴリー
     .CategoryBox
       .CategoryBoxField
         = f.label 'カテゴリー', class: 'listing-default__label'

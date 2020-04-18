@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :random, only: [:index]
-  before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :set_item, only: [:show, :destroy, :edit, :update,]
   before_action :set_user, only: [:index, :new, :show, :edit, :category]
   before_action :correct_user, only: [:edit, :update ,:destroy]
 
@@ -81,7 +81,10 @@ class ItemsController < ApplicationController
   def random
     if user_signed_in?
       @random = Item.where(user_id:(current_user.id)).order("RAND()").limit(1)
-    else
+      @random_spring = Item.where(user_id:(current_user.id),spring:present?).order("RAND()").limit(1)
+      @random_summer = Item.where(user_id:(current_user.id),summer:present?).order("RAND()").limit(1)
+      @random_autumn = Item.where(user_id:(current_user.id),autumn:present?).order("RAND()").limit(1)
+      @random_winter = Item.where(user_id:(current_user.id),winter:present?).order("RAND()").limit(1)
     end
   end
 
