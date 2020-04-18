@@ -1,3 +1,263 @@
+// $fontcolor:rgb(143, 142, 142);
+
+// .header {
+//   height: 120px;
+//   width: 100vw;
+//   display: flex;
+//   justify-content: space-between;
+
+//   &Left {
+//     height: 120px;
+//     width: 270px;
+//     text-align: center;
+//     display: flex;
+
+//     #menu{
+//       list-style-type: none;
+//       height: 35px;
+//       margin: 0 auto;
+//       padding: 0;
+//       font-size: 15px;
+        
+//     }
+//     #menu li{
+//       background-color: white;
+//       position: relative;
+//       width: 100%;
+//       float: left;
+//       margin: 0;
+//       padding: 0;
+//       text-align: center;
+//       height: 80%;
+      
+//       .headerLeftMenu {
+//         font-size: 15px;
+//         line-height: 6.5;
+//         margin-left: 20px;
+//         font-weight: normal;
+//       }
+//     }
+//     #menu li a{
+//       display: block;
+//       margin: 0;
+//       padding: 13px 0;
+//       color: $fontcolor;
+//       font-size: 14px;
+//       font-weight: bold;
+//       line-height: 1;
+//       text-decoration: none;
+//       font-size: 20px;
+    
+//     }
+//     #menu li ul{
+//       line-height: 120px;
+//       list-style: none;
+//       position: absolute;
+//       top: 300%;
+//       left: 400px;
+//       margin: 0;
+//       padding: 0;
+//     }
+//     #menu li:last-child ul{
+//       left: -100%;
+//       width: 100%
+//     }
+//     #menu li ul li{
+//       overflow: hidden;
+//       width: 200%;
+//       height: 0;
+//       color: black;
+//       -moz-transition: .2s;
+//       -webkit-transition: .2s;
+//       -o-transition: .2s;
+//       -ms-transition: .2s;
+//       transition: .2s;
+//     }
+//     #menu li ul li a{
+//       padding: 9px 15px;
+//       text-align: left;
+//       font-size: 15px;
+//       font-weight: normal;
+//       line-height: 2.5;
+//     }
+//     #menu li:hover > a{
+//       color: black;
+//     }
+//     #menu li:hover ul li{
+//       overflow: visible;
+//       height: 38px;
+//       border-bottom: 1px solid $fontcolor;
+//     }
+//     #menu li:hover ul li:first-child{
+//       border-top: 0;
+//     }
+//     #menu li:hover ul li:last-child{
+//       border-bottom: 0;
+//     }
+
+//     &Menu {
+//       color: $fontcolor;
+//       margin-left: 20px;
+//       font-size: 15px;
+//       line-height: 120px;
+//     }
+
+//     &Menu:hover{
+//       color: black;
+//     }
+//     #overlay  {
+//       //モーダルウィンドウの背景を設定
+//         width: 100%;
+//         height: 100%;
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//       //透過度をつける
+//         background: rgba(0, 0, 0, 0.3);
+//         display: none;
+//         z-index: 1;
+//       }
+      
+//       #modalWindow {
+//       // モーダルウィンドウの画面を設定
+//         box-sizing: border-box;
+//         width: 600px;
+//         height: 600px;
+//         position: absolute;
+//       //トップからの場所を指定
+//         top: 40%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//         background-color: white;
+//         z-index: 2;
+//       //flexboxで子要素のボタンとメッセージボックスの要素を配置する
+//         display: flex;
+//         flex-wrap: wrap;
+//         justify-content: space-between;
+      
+//         .indexRandomItem {
+//           @include indexBoxItem;
+//           &Image {
+//             @include indexBoxItemImage;
+//             width: 100%;
+//           }
+//         }    
+      
+//         #modalCloseBtn {
+//           width: 50%;
+//           height: 60px;
+//         }
+      
+//         #randomReturnBtn {
+//           width: 50%;
+//           height: 60px;
+//         }
+//       }
+      
+//       #itemRandomBtn {
+//       //削除ボタンの非表示
+//         width: 0;
+//         height: 0;
+//         margin: 0;
+//         padding: 0;
+//         border: 0;
+//       }
+//   }
+
+//   &Center {
+//     color: $fontcolor;
+//     height: 120px;
+//     width: 300px;
+//     font-size: 50px;
+//     line-height: 120px;
+//   }
+
+//   &Right {
+//     height: 120px;
+//     width: 200px;
+    
+//     #menu{
+//       list-style-type: none;
+//       height: 40px;
+//       margin: 0 auto;
+//       padding: 0;
+
+//       .fa-angle-double-down{
+//         font-size: 30px;
+//         color: $fontcolor;
+//         line-height: 3;
+//       }
+
+//     }
+//     #menu li{
+//       background-color: white;
+//       position: relative;
+//       width: 25%;
+//       float: left;
+//       margin: 0;
+//       padding: 0;
+//       text-align: center;
+
+//     }
+//     #menu li a{
+//       display: block;
+//       margin: 0;
+//       padding: 13px 0;
+//       color: $fontcolor;
+//       font-size: 14px;
+//       font-weight: bold;
+//       line-height: 1;
+//       text-decoration: none;
+//       font-size: 20px;
+
+//     }
+//     #menu li ul{
+//       line-height: 120px;
+//       list-style: none;
+//       position: absolute;
+//       top: 100%;
+//       left: 0;
+//       margin: 0;
+//       padding: 0;
+//     }
+//     #menu li:last-child ul{
+//       left: -100%;
+//       width: 100%
+//     }
+//     #menu li ul li{
+//       overflow: hidden;
+//       width: 200%;
+//       height: 0;
+//       color: black;
+//       -moz-transition: .2s;
+//       -webkit-transition: .2s;
+//       -o-transition: .2s;
+//       -ms-transition: .2s;
+//       transition: .2s;
+//     }
+//     #menu li ul li a{
+//       padding: 9px 15px;
+//       text-align: left;
+//       font-size: 15px;
+//       font-weight: normal;
+//       line-height: 2.5;
+//     }
+//     #menu li:hover > a{
+//       color: black;
+//     }
+//     #menu li:hover ul li{
+//       overflow: visible;
+//       height: 38px;
+//       border-bottom: 1px solid $fontcolor;
+//     }
+//     #menu li:hover ul li:first-child{
+//       border-top: 0;
+//     }
+//     #menu li:hover ul li:last-child{
+//       border-bottom: 0;
+//     }
+//   }
+// }
 $fontcolor:rgb(143, 142, 142);
 
 .header {
@@ -10,6 +270,90 @@ $fontcolor:rgb(143, 142, 142);
     height: 120px;
     width: 270px;
     text-align: center;
+    display: flex;
+
+    #menu{
+      list-style-type: none;
+      height: 35px;
+      margin: 0 auto;
+      padding: 0;
+      font-size: 15px;
+        
+    }
+    #menu li{
+      background-color: white;
+      position: relative;
+      width: 100%;
+      float: left;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      height: 80%;
+      
+      .headerLeftMenu {
+        font-size: 15px;
+        line-height: 6.5;
+        margin-left: 20px;
+        font-weight: normal;
+      }
+    }
+    #menu li a{
+      display: block;
+      margin: 0;
+      padding: 13px 0;
+      color: $fontcolor;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1;
+      text-decoration: none;
+      font-size: 20px;
+    
+    }
+    #menu li ul{
+      line-height: 120px;
+      list-style: none;
+      position: absolute;
+      top: 300%;
+      left: 400px;
+      margin: 0;
+      padding: 0;
+    }
+    #menu li:last-child ul{
+      left: -100%;
+      width: 100%
+    }
+    #menu li ul li{
+      overflow: hidden;
+      width: 200%;
+      height: 0;
+      color: black;
+      -moz-transition: .2s;
+      -webkit-transition: .2s;
+      -o-transition: .2s;
+      -ms-transition: .2s;
+      transition: .2s;
+    }
+    #menu li ul li a{
+      padding: 9px 15px;
+      text-align: left;
+      font-size: 15px;
+      font-weight: normal;
+      line-height: 2.5;
+    }
+    #menu li:hover > a{
+      color: black;
+    }
+    #menu li:hover ul li{
+      overflow: visible;
+      height: 38px;
+      border-bottom: 1px solid $fontcolor;
+    }
+    #menu li:hover ul li:first-child{
+      border-top: 0;
+    }
+    #menu li:hover ul li:last-child{
+      border-bottom: 0;
+    }
 
     &Menu {
       color: $fontcolor;
@@ -21,7 +365,43 @@ $fontcolor:rgb(143, 142, 142);
     &Menu:hover{
       color: black;
     }
-    #overlay {
+    #overlay1  {
+      //モーダルウィンドウの背景を設定
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+      //透過度をつける
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+        z-index: 1;
+      }
+    #overlay2  {
+      //モーダルウィンドウの背景を設定
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+      //透過度をつける
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+        z-index: 1;
+      }
+    #overlay3  {
+      //モーダルウィンドウの背景を設定
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+      //透過度をつける
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+        z-index: 1;
+      }
+    #overlay4  {
       //モーダルウィンドウの背景を設定
         width: 100%;
         height: 100%;
@@ -64,7 +444,19 @@ $fontcolor:rgb(143, 142, 142);
           height: 60px;
         }
       
-        #randomReturnBtn {
+        #randomReturnBtn1 {
+          width: 50%;
+          height: 60px;
+        }
+        #randomReturnBtn2 {
+          width: 50%;
+          height: 60px;
+        }
+        #randomReturnBtn3 {
+          width: 50%;
+          height: 60px;
+        }
+        #randomReturnBtn4 {
           width: 50%;
           height: 60px;
         }
@@ -172,7 +564,5 @@ $fontcolor:rgb(143, 142, 142);
     #menu li:hover ul li:last-child{
       border-bottom: 0;
     }
-    
   }
-
 }
