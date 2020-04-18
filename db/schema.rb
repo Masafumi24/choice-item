@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_053003) do
+ActiveRecord::Schema.define(version: 2020_04_18_032303) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,18 @@ ActiveRecord::Schema.define(version: 2020_04_04_053003) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "coordinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.string "brand"
+    t.integer "spring_id"
+    t.integer "summer_id"
+    t.integer "autumn_id"
+    t.integer "winter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -32,6 +44,12 @@ ActiveRecord::Schema.define(version: 2020_04_04_053003) do
     t.string "name", null: false
     t.bigint "category_id"
     t.bigint "user_id"
+    t.string "brand"
+    t.text "status"
+    t.integer "spring"
+    t.integer "summer"
+    t.integer "autumn"
+    t.integer "winter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"

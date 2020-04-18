@@ -1,0 +1,2 @@
+class Coordination < ApplicationRecord
+end

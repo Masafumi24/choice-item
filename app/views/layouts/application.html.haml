@@ -1,3 +1,88 @@
+-# !!!
+-# %html
+-#   %head
+-#     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+-#     %title ChoiceItem
+-#     = csrf_meta_tags
+-#     = csp_meta_tag
+-#     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+-#     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+-#   %body
+-#     .header
+-#       .headerLeft
+-#         = link_to "Category", category_item_path('category_id'), class:"headerLeftMenu"
+-#         -# - if controller.controller_name == 'items' && controller.action_name == 'index'
+-#         -#   = link_to "Random", "#", class:"headerLeftMenu", id: 'modalOpenBtn'
+-#         -#   = link_to "", root_path(@item), id: 'itemRandomBtn'
+-#         -#   #overlay
+-#         -#     #modalWindow
+-#         -#       .indexRandomItem
+-#         -#         - if @itemsuser.present?
+-#         -#           -@random.each do |item|
+-#         -#             =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
+-#         -#         - else
+-#         -#           まだ投稿はありません
+-#         -#       %button#modalCloseBtn OK
+-#         -#       %button#randomReturnBtn 選び直す     
+-#         - if controller.controller_name == 'items' && controller.action_name == 'index'
+-#           %ul#menu
+-#             %li
+-#               = link_to "Random", "#", class:"headerLeftMenu", id: 'modalOpenBtn'
+-#               = link_to "", root_path(@item), id: 'itemRandomBtn'
+-#               %ul
+-#                 %li
+-#                   %a{:href => "#", class: "logoutBtn"} 春服チョイス
+-#                 %li
+-#                   %a{:href => "#", class: "MyPageBtn"} 夏服チョイス
+-#                 %li
+-#                   %a{:href => "#", class: "logoutBtn"} 秋服チョイス
+-#                 %li
+-#                   %a{:href => "#", class: "MyPageBtn"} 冬服チョイス
+-#                 #overlay
+-#                   #modalWindow
+-#                     .indexRandomItem
+-#                       - if @itemsuser.present?
+-#                         -@random.each do |item|
+-#                           =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
+-#                       - else
+-#                         まだ投稿はありません
+-#                     %button#modalCloseBtn OK
+-#                     %button#randomReturnBtn 選び直す     
+-#         = link_to "New Item", new_item_path, class:"headerLeftMenu"
+-#       =link_to "Choice Item", "/", class:"headerCenter"
+-#       .headerRight
+-#         %ul#menu
+-#           %li
+-#             - if user_signed_in? && @user.image.present?
+-#               =link_to "#" do
+-#                 =image_tag @user.image.to_s, class:"iconImageSmall"
+-#             -else
+-#               %a{:href => "#",class:"fas fa-angle-double-down"} 
+-#             %ul
+-#               -if user_signed_in? && controller.controller_name == 'items' && controller.action_name == 'show' && current_user.id == @item.user_id
+-#                 %li
+-#                   %a{:href => edit_item_path(@item.id), class: "logoutBtn"} Edit
+-#                 %li
+-#                   =link_to "Delete","/items/#{@item.id}", method: :delete, class: "MyPageBtn"
+-#               -elsif controller.controller_name == 'users' && controller.action_name == 'show' && current_user.id == @user.id
+-#                 %li
+-#                   %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
+-#                 %li
+-#                   %a{:href => user_path(current_user.id),class: "MyPageBtn"} My Page
+-#                 %li
+-#                   =link_to "User Edit",edit_user_registration_path(current_user.id),class: "MyPageBtn"
+-#               - elsif user_signed_in?
+-#                 %li
+-#                   %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
+-#                 %li
+-#                   %a{:href => user_path(current_user.id),class: "MyPageBtn"} My Page
+-#               - else
+-#                 %li
+-#                   %a{:href => new_user_registration_path, class: "signUpBtn"} Sign up
+-#                 %li
+-#                   %a{:href => user_session_path, class: "logInBtn"} Login
+-#     = yield
+-#     .footer
 !!!
 %html
   %head
@@ -11,19 +96,73 @@
     .header
       .headerLeft
         = link_to "Category", category_item_path('category_id'), class:"headerLeftMenu"
+        -# - if controller.controller_name == 'items' && controller.action_name == 'index'
+        -#   = link_to "Random", "#", class:"headerLeftMenu", id: 'modalOpenBtn'
+        -#   = link_to "", root_path(@item), id: 'itemRandomBtn'
+        -#   #overlay
+        -#     #modalWindow
+        -#       .indexRandomItem
+        -#         - if @itemsuser.present?
+        -#           -@random.each do |item|
+        -#             =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
+        -#         - else
+        -#           まだ投稿はありません
+        -#       %button#modalCloseBtn OK
+        -#       %button#randomReturnBtn 選び直す     
         - if controller.controller_name == 'items' && controller.action_name == 'index'
-          = link_to "Random", "#", class:"headerLeftMenu", id: 'modalOpenBtn'
-          = link_to "", root_path(@item), id: 'itemRandomBtn'
-          #overlay
-            #modalWindow
-              .indexRandomItem
-                - if @itemsuser.present?
-                  -@random.each do |item|
-                    =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
-                - else
-                  まだ投稿はありません
-              %button#modalCloseBtn OK
-              %button#randomReturnBtn 選び直す     
+          %ul#menu
+            %li
+              = link_to "Random", "#", class:"headerLeftMenu"
+              = link_to "", root_path(@item), id: 'itemRandomBtn'
+              %ul
+                %li
+                  %a{:href => "#", class: "logoutBtn", id: 'modalOpenBtn1'} 春服チョイス
+                %li
+                  %a{:href => "#", class: "MyPageBtn", id: 'modalOpenBtn2'} 夏服チョイス
+                %li
+                  %a{:href => "#", class: "logoutBtn", id: 'modalOpenBtn3'} 秋服チョイス
+                %li
+                  %a{:href => "#", class: "MyPageBtn", id: 'modalOpenBtn4'} 冬服チョイス
+                #overlay1
+                  #modalWindow
+                    .indexRandomItem
+                      - if @itemsuser.present? && @random_spring.present?
+                        -@random_spring.each do |item|
+                          =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
+                      - else
+                        まだ投稿はありません
+                    %button#modalCloseBtn OK
+                    %button#randomReturnBtn1 選び直す     
+                #overlay2
+                  #modalWindow
+                    .indexRandomItem
+                      - if @itemsuser.present? && @random_summer.present?
+                        -@random_summer.each do |item|
+                          =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
+                      - else
+                        まだ投稿はありません
+                    %button#modalCloseBtn OK
+                    %button#randomReturnBtn2 選び直す     
+                #overlay3
+                  #modalWindow
+                    .indexRandomItem
+                      - if @itemsuser.present? && @random_autumn.present?
+                        -@random_autumn.each do |item|
+                          =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
+                      - else
+                        まだ投稿はありません
+                    %button#modalCloseBtn OK
+                    %button#randomReturnBtn3 選び直す     
+                #overlay4
+                  #modalWindow
+                    .indexRandomItem
+                      - if @itemsuser.present? && @random_winter.present?
+                        -@random_winter.each do |item|
+                          =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
+                      - else
+                        まだ投稿はありません
+                    %button#modalCloseBtn OK
+                    %button#randomReturnBtn4 選び直す     
         = link_to "New Item", new_item_path, class:"headerLeftMenu"
       =link_to "Choice Item", "/", class:"headerCenter"
       .headerRight

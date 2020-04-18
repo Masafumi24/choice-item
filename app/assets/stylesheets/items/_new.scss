@@ -6,17 +6,33 @@
     &Title {
       @include title;
     }
+    &FieldCheck {
+      display: flex;
+      &Text {
+
+      }
+      &Box {
+        padding: 100;
+      }
+    }
     &Field {
       @include formField;
+      margin-bottom: 5%;
       &Calum {
         font-size: 20px;
         color: $fontcolor;
-        position: absolute;
-        left: 0;
+        text-align: left;
       }
       &Form {
         @include form;
-        margin-top: 5%;
+        margin-top: 2%;
+      }
+      &Area {
+        margin-top: 18px;
+        height: 100px;
+        width: 100%;
+        padding: 0 16px;
+        font-size: 15px;
       }
     }
     .newImageTitle {
@@ -74,4 +90,54 @@
   padding: 15px;
   color: $fontcolor;
   font-size: 15px;
+}
+
+
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+  margin-top: 5%;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-right: 5px;
+  font: 14px/20px 'Open Sans', Arial, sans-serif;
+  color: $fontcolor;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #5bebf5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.listing-default--require{
+  color: $fontcolor;
 }
