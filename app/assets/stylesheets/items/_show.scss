@@ -4,7 +4,7 @@
     @include centerContent;
     &Title{
       @include title;
-      margin-bottom: 2%;
+      margin-bottom: 0;
     }
     &Image {
       text-align: center;
@@ -30,6 +30,9 @@
     &Category {
       width: 70%;
       margin: 0 auto;
+      margin-bottom: 5%;
+      border-bottom: 1px solid black;
+
       &Title {
         @include title;
         margin-top: 0;
@@ -38,6 +41,7 @@
         color: $fontcolor;
         margin-bottom: 2%;
         font-size: 20px;
+
       }
     }
 

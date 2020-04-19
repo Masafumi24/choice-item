@@ -1,16 +1,16 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :random, only: [:index]
-  before_action :set_item, only: [:show, :destroy, :edit, :update,]
+  before_action :set_item, only: [:destroy, :edit, :update,]
   before_action :set_user, only: [:index, :new, :show, :edit, :category]
   before_action :correct_user, only: [:edit, :update ,:destroy]
 
 
   def index
-    @items = Item.includes(:images, :user)
+    @items = Item.includes(:images, :user).order(id: "DESC").limit(10)
     if user_signed_in?
       @itemsuser = Item.find_by(user_id:(current_user.id))
-      @useritems = Item.where(user_id:(current_user.id))
+      @useritems = Item.includes(:images).where(user_id:(current_user.id)).order(id: "DESC").limit(10)
     else
     end
   end
@@ -48,6 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.includes(:category).find(params[:id])
   end
 
   def edit

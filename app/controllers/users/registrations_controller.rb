@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :correct_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_permitted_parameters, only: [:update]
 
@@ -16,12 +18,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    @user = User.find(current_user.id)
   end
 
   # PUT /resource
   def update
-    @user = User.find(current_user.id)
     @user.update(account_update_params)
     redirect_to root_path
   end
@@ -45,6 +45,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
+
+  def correct_user
+    @current_user = User.find(current_user.id)
+      unless @current_user
+        redirect_to root_url
+      end
+  end
+
+  def set_user
+    @user = User.find(current_user.id)
+  end
+
 
   # def configure_permitted_parameters
   #   devise_parameter_sanitizer.for(:account_update) do |u|

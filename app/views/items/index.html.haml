@@ -5,8 +5,9 @@
     .indexUserTitle
       .indexUserTitleText
         Your Item Chart
-      .indexUserTitleBtn
-        →
+      = link_to user_path(current_user.id) do
+        .indexUserTitleBtn
+          →
     .indexUserItem
       -@useritems.each do |item|
         = link_to item_path(item.id) do

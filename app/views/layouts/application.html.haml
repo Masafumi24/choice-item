@@ -11,19 +11,6 @@
     .header
       .headerLeft
         = link_to "Category", category_item_path('category_id'), class:"headerLeftMenu"
-        -# - if controller.controller_name == 'items' && controller.action_name == 'index'
-        -#   = link_to "Random", "#", class:"headerLeftMenu", id: 'modalOpenBtn'
-        -#   = link_to "", root_path(@item), id: 'itemRandomBtn'
-        -#   #overlay
-        -#     #modalWindow
-        -#       .indexRandomItem
-        -#         - if @itemsuser.present?
-        -#           -@random.each do |item|
-        -#             =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
-        -#         - else
-        -#           まだ投稿はありません
-        -#       %button#modalCloseBtn OK
-        -#       %button#randomReturnBtn 選び直す     
         - if controller.controller_name == 'items' && controller.action_name == 'index'
           %ul#menu
             %li
@@ -31,13 +18,13 @@
               = link_to "", root_path(@item), id: 'itemRandomBtn'
               %ul
                 %li
-                  %a{:href => "#", class: "logoutBtn", id: 'modalOpenBtn1'} 春服チョイス
+                  %a{:href => "#", class: "logoutBtn", id: 'modalOpenBtn1'} Spring Choice
                 %li
-                  %a{:href => "#", class: "MyPageBtn", id: 'modalOpenBtn2'} 夏服チョイス
+                  %a{:href => "#", class: "MyPageBtn", id: 'modalOpenBtn2'} Summer Choice
                 %li
-                  %a{:href => "#", class: "logoutBtn", id: 'modalOpenBtn3'} 秋服チョイス
+                  %a{:href => "#", class: "logoutBtn", id: 'modalOpenBtn3'} Autumn Choice
                 %li
-                  %a{:href => "#", class: "MyPageBtn", id: 'modalOpenBtn4'} 冬服チョイス
+                  %a{:href => "#", class: "MyPageBtn", id: 'modalOpenBtn4'} Winter Choice
                 #overlay1
                   #modalWindow
                     .indexRandomItem
@@ -45,9 +32,9 @@
                         -@random_spring.each do |item|
                           =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
                       - else
-                        まだ投稿はありません
-                    %button#modalCloseBtn OK
-                    %button#randomReturnBtn1 選び直す     
+                        春服の投稿はまだありません
+                    -# %button#modalCloseBtn OK
+                    %button#randomReturnBtn1 OK   
                 #overlay2
                   #modalWindow
                     .indexRandomItem
@@ -55,9 +42,9 @@
                         -@random_summer.each do |item|
                           =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
                       - else
-                        まだ投稿はありません
-                    %button#modalCloseBtn OK
-                    %button#randomReturnBtn2 選び直す     
+                        夏服の投稿はまだありません
+                    -# %button#modalCloseBtn OK
+                    %button#randomReturnBtn2 OK    
                 #overlay3
                   #modalWindow
                     .indexRandomItem
@@ -65,9 +52,9 @@
                         -@random_autumn.each do |item|
                           =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
                       - else
-                        まだ投稿はありません
-                    %button#modalCloseBtn OK
-                    %button#randomReturnBtn3 選び直す     
+                        秋服の投稿はまだありません
+                    -# %button#modalCloseBtn OK
+                    %button#randomReturnBtn3 OK   
                 #overlay4
                   #modalWindow
                     .indexRandomItem
@@ -75,9 +62,9 @@
                         -@random_winter.each do |item|
                           =image_tag item.images.first.src.to_s,class: "indexRandomItemImage"
                       - else
-                        まだ投稿はありません
-                    %button#modalCloseBtn OK
-                    %button#randomReturnBtn4 選び直す     
+                        冬服の投稿はまだありません
+                    -# %button#modalCloseBtn OK
+                    %button#randomReturnBtn4 OK    
         = link_to "New Item", new_item_path, class:"headerLeftMenu"
       =link_to "Choice Item", "/", class:"headerCenter"
       .headerRight

@@ -1,5 +1,6 @@
 .itemShow
   .itemShowBox
+    
     .itemShowBoxTitle
       = @item.name
     .itemShowBoxImage
@@ -7,6 +8,18 @@
         %i.fas.fa-arrow-circle-right
       -@item.images.each do |image|
         =image_tag image.src.to_s,class: "itemShowBoxImageSrc"
+    - if @item.brand.present?
+      .itemShowBoxCategory
+        .itemShowBoxCategoryTitle
+          ブランド
+        .itemShowBoxCategoryName
+          = @item.brand
+    - if @item.status.present?
+      .itemShowBoxCategory
+        .itemShowBoxCategoryTitle
+          アイテム紹介
+        .itemShowBoxCategoryName
+          = @item.status
     .itemShowBoxCategory
       .itemShowBoxCategoryTitle
         カテゴリー
