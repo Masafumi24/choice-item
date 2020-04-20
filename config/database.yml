@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: choice-item_production
-  username: choice-item
-  password: <%= ENV['CHOICE-ITEM_DATABASE_PASSWORD'] %>
+  username: root            #rootに変更
+  password: <%= ENV['DATABASE_PASSWORD'] %> #chat-spadeで使った変数
+  socket: /var/lib/mysql/mysql.sock #必須の指定
