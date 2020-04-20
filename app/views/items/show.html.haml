@@ -1,6 +1,7 @@
 .itemShow
   .itemShowBox
-    -unless @item.user.id == current_user.id
+    -if user_signed_in? && @item.user.id == current_user.id
+    -else
       .itemShowBoxUser
         .itemShowBoxUserOwner
           Item Owner

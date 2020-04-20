@@ -269,9 +269,11 @@ $fontcolor:rgb(143, 142, 142);
 }
 
 .footer {
+  background-color: rgb(236, 236, 236);
   width: 100vw;
   padding: 5%;
   text-align: center;
+  border-top: 1px solid $fontcolor;
   &Box {
     background-color: white;
     padding: 40px;
