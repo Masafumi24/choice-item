@@ -2,6 +2,11 @@
   @include mainContent;
   &Box{
     @include centerContent;
+    &User {
+      width: 95%;
+      text-align: right;
+      color: $fontcolor;
+    }
     &Title{
       @include title;
       margin-bottom: 0;

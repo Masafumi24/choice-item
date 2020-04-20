@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :random, only: [:index]
   before_action :set_item, only: [:destroy, :edit, :update,]
-  before_action :set_user, only: [:index, :new, :show, :edit, :category]
+  before_action :set_user, only: [:index, :new, :show, :edit, :category, :allitem]
   before_action :correct_user, only: [:edit, :update ,:destroy]
 
 
@@ -88,8 +88,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def category
-    @category = Item.select('category_id')
+  def allitem
+    @allItem = Item.includes(:images).all.order(id: "DESC")
   end
 
   private

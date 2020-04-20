@@ -1,0 +1,20 @@
+.allitem {
+  @include mainContent;
+  &Content {
+    @include centerContent;
+    &Title {
+      @include title;
+    }
+    &Image {
+      padding: 5px;
+      width: 100%;
+      text-align: left;
+      &Src {
+        height: 263px;
+        width: 263px;
+        margin-bottom: 2px;
+        object-fit:cover;
+      }
+    }
+  }
+}

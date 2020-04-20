@@ -10,7 +10,7 @@
   %body
     .header
       .headerLeft
-        = link_to "Category", category_item_path('category_id'), class:"headerLeftMenu"
+        = link_to "New Item", new_item_path, class:"headerLeftMenu"
         - if controller.controller_name == 'items' && controller.action_name == 'index'
           %ul#menu
             %li
@@ -65,7 +65,6 @@
                         冬服の投稿はまだありません
                     -# %button#modalCloseBtn OK
                     %button#randomReturnBtn4 OK    
-        = link_to "New Item", new_item_path, class:"headerLeftMenu"
       =link_to "Choice Item", "/", class:"headerCenter"
       .headerRight
         %ul#menu

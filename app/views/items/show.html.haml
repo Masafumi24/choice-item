@@ -1,6 +1,13 @@
 .itemShow
   .itemShowBox
-    
+    -unless @item.user.id == current_user.id
+      .itemShowBoxUser
+        .itemShowBoxUserOwner
+          Item Owner
+        .itemShowBoxUserName
+          =@item.user.nickname
+        .itemShowBoxUserName
+          =image_tag @item.user.image.url, class:"iconImageSmall"
     .itemShowBoxTitle
       = @item.name
     .itemShowBoxImage

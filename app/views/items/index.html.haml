@@ -18,7 +18,8 @@
       .indexNewTitleText
         New Item Chart
       .indexNewTitleBtn
-        →
+        =link_to allitem_items_path do
+          →
     .indexNewItem
       -@items.each do |item|
         = link_to item_path(item.id) do

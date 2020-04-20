@@ -1,0 +1,8 @@
+.allitem
+  .allitemContent
+    .allitemContentTitle
+      全てのアイテム
+    .allitemContentImage
+      -@allItem.each do |item|
+        =link_to item_path(item.id) do
+          =image_tag item.images.first.src.to_s, class:"allitemContentImageSrc"
