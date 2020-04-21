@@ -16,7 +16,7 @@
             -if @user.id == current_user.id
               My Item Chart
             -else
-              = "#{@user.nickname}　さんのアイテム"
+              = "#{@user.nickname}さんのアイテム"
           .myPageBoxStatusItemChart
             - @useritems.each do |item|
               = link_to item_path(item.id) do
