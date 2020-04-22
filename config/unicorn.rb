@@ -1,8 +1,14 @@
-app_path = File.expand_path('../../../', __FILE__)
+# app_path = File.expand_path('../../../', __FILE__)
 
-worker_processes 1
+# worker_processes 1
 
-working_directory "#{app_path}/current"
+# working_directory "#{app_path}/current"
+RAILS_ROOT = File.expand_path('../../', __FILE__)
+ENV['BUNDLE_GEMFILE'] = RAILS_ROOT + "/Gemfile"
+# ここは、RIALS_ROOTが記載されていれば、明示的にかかなくても大丈夫です。
+# 自分が使っている環境でも、下の記載なしにちゃんと動いてますね。
+working_directory RAILS_ROOT
+
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
