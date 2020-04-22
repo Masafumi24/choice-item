@@ -9,10 +9,10 @@ ENV['BUNDLE_GEMFILE'] = RAILS_ROOT + "/Gemfile"
 # 自分が使っている環境でも、下の記載なしにちゃんと動いてますね。
 working_directory RAILS_ROOT
 
-pid "#{app_path}/shared/tmp/pids/unicorn.pid"
-listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
-stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
-stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
+pid "#{RAILS_ROOT}/shared/tmp/pids/unicorn.pid"
+listen "#{RAILS_ROOT}/shared/tmp/sockets/unicorn.sock"
+stderr_path "#{RAILS_ROOT}/shared/log/unicorn.stderr.log"
+stdout_path "#{RAILS_ROOT}/shared/log/unicorn.stdout.log"
 
 timeout 60
 
