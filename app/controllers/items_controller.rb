@@ -81,10 +81,10 @@ class ItemsController < ApplicationController
 
   def random
     if user_signed_in?
-      @random_spring = Item.where(user_id:(current_user.id),spring:present?).order("RAND()").limit(1)
-      @random_summer = Item.where(user_id:(current_user.id),summer:present?).order("RAND()").limit(1)
-      @random_autumn = Item.where(user_id:(current_user.id),autumn:present?).order("RAND()").limit(1)
-      @random_winter = Item.where(user_id:(current_user.id),winter:present?).order("RAND()").limit(1)
+      @random_spring = Item.where(user_id:(current_user.id),spring_id:present?).order("RAND()").limit(1)
+      @random_summer = Item.where(user_id:(current_user.id),summer_id:present?).order("RAND()").limit(1)
+      @random_autumn = Item.where(user_id:(current_user.id),autumn_id:present?).order("RAND()").limit(1)
+      @random_winter = Item.where(user_id:(current_user.id),winter_id:present?).order("RAND()").limit(1)
     end
   end
 
@@ -95,7 +95,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :brand, :status, :spring, :summer, :autumn, :winter, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :brand, :status, :spring_id, :summer_id, :autumn_id, :winter_id, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def category_id_params

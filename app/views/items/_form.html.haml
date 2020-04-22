@@ -23,13 +23,13 @@
     %span.listing-default--require
       ※ランダム選択する場合は必ずチェック入れてください（複数可）
       .itemNewBoxFieldCheck
-        = f.check_box :spring, {id:'box1'} , 1, nil
+        = f.check_box :spring_id, {id:'box1'} , 1, nil
         %label{:for => "box1"} 春服
-        = f.check_box :summer, {id:'box2'} , 1, nil
+        = f.check_box :summer_id, {id:'box2'} , 1, nil
         %label{:for => "box2"} 夏服
-        = f.check_box :autumn, {id:'box3'} , 1, nil
+        = f.check_box :autumn_id, {id:'box3'} , 1, nil
         %label{:for => "box3"} 秋服
-        = f.check_box :winter, {id:'box4'} , 1, nil
+        = f.check_box :winter_id, {id:'box4'} , 1, nil
         %label{:for => "box4"} 冬服
   .newImageTitle
     アイテム画像

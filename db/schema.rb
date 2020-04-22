@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 2020_04_18_032303) do
     t.bigint "user_id"
     t.string "brand"
     t.text "status"
-    t.integer "spring"
-    t.integer "summer"
-    t.integer "autumn"
-    t.integer "winter"
+    t.integer "spring_id"
+    t.integer "summer_id"
+    t.integer "autumn_id"
+    t.integer "winter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
