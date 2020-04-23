@@ -1,5 +1,5 @@
 # Gemfile.lockを見てcapistranoのバージョンを入れる
-lock '3.12.1'
+lock '3.13.0'
 
 # 自身のアプリ名、リポジトリ名を記述
 set :application, 'choice-item'
