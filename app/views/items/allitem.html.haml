@@ -5,4 +5,4 @@
     .allitemContentImage
       -@allItem.each do |item|
         =link_to item_path(item.id) do
-          =image_tag item.images.first.src.to_s, class:"allitemContentImageSrc"
+          =image_tag item.images.first.src.thumb300.url, class:"allitemContentImageSrc"
