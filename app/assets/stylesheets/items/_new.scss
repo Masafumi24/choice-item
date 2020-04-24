@@ -8,9 +8,6 @@
     }
     &FieldCheck {
       display: flex;
-      &Text {
-
-      }
       &Box {
         padding: 100;
       }
@@ -65,12 +62,15 @@
         }
       }
       #imagePre {
+        object-fit: cover;
         .smallImage {
           text-align: left;
+          height: 184px;
+          width: 184px;
+          object-fit: cover;
         }
       }
-    }
-    .CategoryBoxField{
+        .CategoryBoxField{
       color: $fontcolor;
       .listing-select-wrapper__box--select {
         color: $fontcolor;
@@ -138,6 +138,8 @@ input[type="checkbox"]:checked + label:before {
   transform: rotate(45deg);
 }
 
-.listing-default--require{
+.listing-default--require {
   color: $fontcolor;
+}
+
 }
