@@ -18,9 +18,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [700, 700]
   end
 
-  def extension_white_list
-    %w(jpg jpeg gif png)
-  end
+  # def extension_white_list
+  #   %w(jpg jpeg gif png)
+  # end
 
   def filename
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
