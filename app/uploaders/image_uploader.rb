@@ -4,14 +4,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   include Piet::CarrierWaveExtension
   # include CarrierWave::MiniMagick
   # 画像の上限を640x480にする
-  process :resize_to_limit => [600, 600]
- 
-  # 保存形式をJPGにする
   process :convert => 'jpg'
   process optimize: [quality: 50]
 
+  process :resize_to_limit => [600, 600]
+ 
+  # 保存形式をJPGにする
+
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w(jpg jpeg gif png heic)
   end
 
   def filename
