@@ -58,7 +58,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-    %w(jpg jpeg gif png heic heif)
+    %w(jpg jpeg gif png HEIC HEIF)
   end
 
   # Override the filename of the uploaded files:
