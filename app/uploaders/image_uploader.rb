@@ -12,7 +12,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # 保存形式をJPGにする
 
   def extension_white_list
-    %w(jpg jpeg gif png heic)
+    %w(jpg jpeg gif png)
   end
 
   def filename
