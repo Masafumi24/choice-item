@@ -7,7 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   process :convert => 'jpg'
   # process optimize: [quality: 50]
 
-  process :resize_to_limit => [600, 600]
+  process :resize_to_limit => [10, 10]
  
   # 保存形式をJPGにする
 
