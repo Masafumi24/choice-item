@@ -492,7 +492,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  fog (= 1.42)
+  fog
   font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)
