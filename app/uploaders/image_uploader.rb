@@ -4,18 +4,18 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include Piet::CarrierWaveExtension
   # include CarrierWave::MiniMagick
   # 画像の上限を640x480にする
-  process :resize_to_limit => [10, 10]
   process :convert => 'jpg'
+  process :resize_to_limit => [10, 10]
   # process optimize: [quality: 50]
   # 保存形式をJPGにする
 
-  def filename
-    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
-  end
+  # def filename
+  #   super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
+  # end
 
-  def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
-  end
+  # def filename
+  #   "#{secure_token}.#{file.extension}" if original_filename.present?
+  # end
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
@@ -49,7 +49,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-    %w(jpg jpeg gif png HEIC HEIF)
+    %w(jpg jpeg gif png)
   end
 
   # Override the filename of the uploaded files:
@@ -63,11 +63,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     storage :fog
   end
   
-  protected
-  def secure_token
-    var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-  end
+  # protected
+  # def secure_token
+  #   var = :"@#{mounted_as}_secure_token"
+  #   model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  # end
 
   
 end
