@@ -71,7 +71,7 @@
           %li
             - if user_signed_in? && @user.image.present?
               =link_to "#" do
-                =image_tag @user.image.icon.url, class:"iconImageSmall"
+                =image_tag @user.image.url, class:"iconImageSmall"
             -else
               %a{:href => "#",class:"fas fa-angle-double-down"} 
             %ul

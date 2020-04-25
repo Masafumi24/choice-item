@@ -31,7 +31,7 @@
           .userSignImagePre
             =f.file_field :image, class: ".userSignImagePreFile", id: :img_file
             - if @user.image.present?
-              = image_tag @user.image.to_s, id: :img_prev
+              = image_tag @user.image.url, id: :img_prev
             - else
               = image_tag "丸枠付きのカメラのアイコン素材 2.jpeg", id: :img_prev
       .SignSubmitArea

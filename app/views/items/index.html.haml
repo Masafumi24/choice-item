@@ -23,5 +23,5 @@
     .indexNewItem
       -@items.each do |item|
         = link_to item_path(item.id) do
-          =image_tag item.images.first.src.thumb300.to_s, class: "indexNewItemImage"
+          =image_tag item.images.first.src.url, class: "indexNewItemImage"
 = javascript_include_tag 'modal.js'

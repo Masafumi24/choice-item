@@ -39,7 +39,7 @@
     #imagePre
       -if @item.persisted?
         - @item.images.each_with_index do |image, i|
-          = image_tag image.src.icon.url, data: { index: i }, class: 'smallImage', width: "100", height: '100'
+          = image_tag image.src.url, data: { index: i }, class: 'smallImage', width: "100", height: '100'
     .newImageBox
       = f.fields_for :images do |image| 
         .newImageBoxGroup{"data-index" => "#{image.index}"}

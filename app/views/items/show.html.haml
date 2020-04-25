@@ -15,7 +15,7 @@
       -if @item.images.length >= 2
         %i.fas.fa-arrow-circle-right
       -@item.images.each do |image|
-        =image_tag image.src.to_s,class: "itemShowBoxImageSrc"
+        =image_tag image.src.url,class: "itemShowBoxImageSrc"
     - if @item.brand.present?
       .itemShowBoxCategory
         .itemShowBoxCategoryTitle
