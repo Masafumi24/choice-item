@@ -1,11 +1,11 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
-  include Piet::CarrierWaveExtension
+  # include Piet::CarrierWaveExtension
   # include CarrierWave::MiniMagick
   # 画像の上限を640x480にする
   process :convert => 'jpg'
-  process optimize: [quality: 50]
+  # process optimize: [quality: 50]
 
   process :resize_to_limit => [600, 600]
  
