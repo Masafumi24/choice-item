@@ -11,11 +11,10 @@
     &Chart {
       &Field {
         @include formField;
+        text-align: left;
         &Calum {
           font-size: 20px;
           color: $fontcolor;
-          position: absolute;
-          left: 0;  
         }
         &Form {
           @include form;
