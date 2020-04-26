@@ -13,9 +13,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png HEIC HEIF heic heif)
   end
 
-  process optimize: [quality: 10]
-  process :resize_to_fit => [700, 700]
   process :convert => 'jpg'
+
+  # process optimize: [quality: 10]
+  process :resize_to_fit => [700, 700]
 
   def filename
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
