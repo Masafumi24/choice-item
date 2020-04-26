@@ -4,9 +4,16 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include Piet::CarrierWaveExtension
   # include CarrierWave::MiniMagick
   # 画像の上限を640x480にする
-  process :resize_to_limit => [700, 700]
-
+  if Rails.env.development? || Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
+  
   process :convert => 'jpg'
+
+  process :resize_to_fit => [700, 700]
+
   # process optimize: [quality: 50]
   # 保存形式をJPGにする
 
@@ -69,11 +76,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  if Rails.env.development? || Rails.env.test?
-    storage :file
-  else
-    storage :fog
-  end
   
   
 end
