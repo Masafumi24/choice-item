@@ -25,11 +25,11 @@
         margin-top: 2%;
       }
       &Area {
-        margin-top: 18px;
-        height: 100px;
-        width: 100%;
-        padding: 0 16px;
-        font-size: 15px;
+        @include form 
+        // margin-top: 18px;
+        // width: 100%;
+        // padding: 0 16px;
+        // font-size: 15px;
       }
     }
     .newImageTitle {

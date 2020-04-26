@@ -33,8 +33,12 @@
         %label{:for => "box4"} 冬服
   .newImageTitle
     アイテム画像
-  %span.listing-default--require
-    ※必須（複数可）画像によってプレビューが出ないことがあります
+  .listing-default--require
+    ※必須（複数可）
+  .listing-default--require
+    ※画像によってプレビューが出ないことがあります
+  .listing-default--require
+    ※Macから投稿される場合HEIC HEIF画像は投稿できない場合があります
   #image-box
     #imagePre
       -if @item.persisted?
