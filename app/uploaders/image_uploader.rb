@@ -9,17 +9,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   else
     storage :fog
   end
-  
+
+  def extension_whitelist
+    %w(jpg jpeg gif png HEIC HEIF heic heif)
+  end
+
   process :convert => 'jpg'
 
   process :resize_to_fit => [700, 700]
 
   # process optimize: [quality: 50]
   # 保存形式をJPGにする
-
-  def extension_whitelist
-    %w(jpg jpeg gif png HEIC HEIF heic heif)
-  end
 
 
   def filename
