@@ -281,21 +281,15 @@ $fontcolor:rgb(143, 142, 142);
     margin: 0 auto;
     color: $fontcolor;
     font-size: 15px;
-    &Name {
-      margin-bottom: 2%;
-    }
     &Image {
       height: 200px;
       width: 200px;
       border-radius: 200px;
-      margin-bottom: 2%;
+      margin: 2% 0;
 
     }
     &Profile {
-      line-height: 2;
-      &TextBottom {
-        margin-bottom: 2%;
-      }
+      line-height: 1;
     }
   }
 }
