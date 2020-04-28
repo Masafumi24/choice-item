@@ -1,6 +1,6 @@
 .itemShow
   .itemShowBox
-    -if user_signed_in? && @item.user.id == current_user.id
+    -if current_user_has?(@item)
     -else
       .itemShowBoxUser
         .itemShowBoxUserOwner

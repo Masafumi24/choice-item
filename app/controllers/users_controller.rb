@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
+
   def show
-    @user = User.find(current_user.id)
-    @useritems = Item.includes(:images).where(user_id:(current_user.id))
+    @useritems = Item.includes_images.where(user_id:(current_user.id)).newturn
   end
+
 end

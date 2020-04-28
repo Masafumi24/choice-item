@@ -1,16 +1,16 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :allitem]
   before_action :random, only: [:index]
-  before_action :set_item, only: [:destroy, :edit, :update,]
+  before_action :set_item, only: [:show, :destroy, :edit, :update,]
   before_action :set_user, only: [:index, :new, :show, :edit, :allitem]
   before_action :correct_user, only: [:edit, :update ,:destroy]
 
 
   def index
-    @items = Item.includes(:images, :user).order(id: "DESC").limit(10)
+    @items = Item.includes_images_user.new_chart_10
     if user_signed_in?
       @itemsuser = Item.find_by(user_id:(current_user.id))
-      @useritems = Item.includes(:images).where(user_id:(current_user.id)).order(id: "DESC").limit(10)
+      @useritems = Item.includes_images.where(user_id:(current_user.id)).new_chart_10
     else
     end
   end
@@ -48,7 +48,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.includes(:category).find(params[:id])
   end
 
   def edit
@@ -81,15 +80,15 @@ class ItemsController < ApplicationController
 
   def random
     if user_signed_in?
-      @random_spring = Item.where(user_id:(current_user.id),spring_id:present?).order("RAND()").limit(1)
-      @random_summer = Item.where(user_id:(current_user.id),summer_id:present?).order("RAND()").limit(1)
-      @random_autumn = Item.where(user_id:(current_user.id),autumn_id:present?).order("RAND()").limit(1)
-      @random_winter = Item.where(user_id:(current_user.id),winter_id:present?).order("RAND()").limit(1)
+      @random_spring = Item.where(user_id:(current_user.id),spring_id:present?).random_choice
+      @random_summer = Item.where(user_id:(current_user.id),summer_id:present?).random_choice
+      @random_autumn = Item.where(user_id:(current_user.id),autumn_id:present?).random_choice
+      @random_winter = Item.where(user_id:(current_user.id),winter_id:present?).random_choice
     end
   end
 
   def allitem
-    @allItem = Item.includes(:images).all.order(id: "DESC")
+    @allItem = Item.includes_images.all.newturn
   end
 
   private
@@ -109,12 +108,6 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def set_user
-    if user_signed_in?
-      @user = User.find(current_user.id)
-    end
   end
 
   def correct_user

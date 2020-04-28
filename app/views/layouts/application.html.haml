@@ -2,6 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0", :name => "viewport"}/
     %title ChoiceItem
     = csrf_meta_tags
     = csp_meta_tag
@@ -75,7 +76,7 @@
             -else
               %a{:href => "#",class:"fas fa-angle-double-down"} 
             %ul
-              -if user_signed_in? && controller.controller_name == 'items' && controller.action_name == 'show' && current_user.id == @item.user_id
+              -if controller.controller_name == 'items' && controller.action_name == 'show' && current_user_has?(@item)
                 %li
                   %a{:href => edit_item_path(@item.id), class: "logoutBtn"} Edit
                 %li
@@ -115,7 +116,7 @@
           %br 服のランダムチョイスが行えます。
           %br 忙しい毎日に少しでも遊び心を。素人の作品ですがお楽しみいただけると幸いです。
           %br
-          %br ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・
+          %br ・・・・・・・・・・・・・・・・・・・・
           %br
           %br 今後の実装
           %br・コーディネートも投稿できるようにする

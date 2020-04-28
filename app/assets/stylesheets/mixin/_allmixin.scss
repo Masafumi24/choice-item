@@ -1,3 +1,10 @@
+$sp: 559px;
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
 @mixin indexBoxItem {
   box-sizing: border-box;
   height: 80%;
@@ -34,6 +41,9 @@
   font-size: 25px;
   color: $fontcolor;
   margin: 5% 0;
+  @include sp {
+    font-size: 18px;      
+  };
 }
 
 @mixin formField {
@@ -49,5 +59,9 @@
   width: 100%;
   padding: 0 16px;
   font-size: 15px;
+  @include sp {
+    height: 25px;
+    font-size: 7px;        
+  };
 }
 
