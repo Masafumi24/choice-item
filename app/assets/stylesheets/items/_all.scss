@@ -38,8 +38,8 @@ $fontcolor:rgb(143, 142, 142);
         @include sp {
           height: 100px;
           width: 15vw;
-          font-size: 15px;
-          line-height: 7.5;
+          font-size: 12px;
+          line-height: 6;
           margin-left: 2px;
         };      
       }
@@ -93,7 +93,7 @@ $fontcolor:rgb(143, 142, 142);
       font-weight: normal;
       line-height: 2.5;
       @include sp {
-        font-size: 15px;
+        font-size: 12px;
         width: 50vw;
         text-align: left;
       };
@@ -121,7 +121,7 @@ $fontcolor:rgb(143, 142, 142);
       @include sp {
         margin-left: 2px;
         line-height: 100px;
-        font-size: 15px;
+        font-size: 12px;
       };
     }
 
