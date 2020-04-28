@@ -59,5 +59,9 @@ $sp: 559px;
   width: 100%;
   padding: 0 16px;
   font-size: 15px;
+  @include sp {
+    height: 25px;
+    font-size: 7px;        
+  };
 }
 
