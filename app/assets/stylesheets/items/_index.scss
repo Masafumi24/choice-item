@@ -38,6 +38,7 @@
   };
 }
 @mixin indexBoxTitleText {
+  text-decoration: none;
   color: $fontcolor;
 }
 @mixin indexBoxTitleBtn {
