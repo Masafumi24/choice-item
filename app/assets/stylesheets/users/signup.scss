@@ -11,6 +11,9 @@
       &Calum {
         font-size: 20px;
         color: $fontcolor;
+        @include sp {
+          font-size: 15px;  
+        };
       }
       &Form {
         @include form;
@@ -30,9 +33,11 @@
     display: flex;
     margin-bottom: 5%;
     &Name {
-
       font-size: 25px;
       color: $fontcolor;
+      @include sp {
+        font-size: 15px;    
+      };
     }    
   }
   &Imagepre {
@@ -60,6 +65,10 @@
   width: 150px;
   margin-bottom: 5%;
   object-fit: cover;
+  @include sp {
+    height: 80px;
+    width: 80px;        
+  };
 }
 
 .SignSubmitArea {
@@ -72,5 +81,9 @@
     color: $fontcolor;
     padding: 20px 150px;
     margin: 0 auto;
+    @include sp {
+      font-size: 15px;  
+      padding: 10px 40px;    
+    };
   }
 }

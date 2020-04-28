@@ -7,6 +7,9 @@
       font-size: 25px;
       color: $fontcolor;
       margin: 5% 0;
+      @include sp {
+        font-size: 20px;    
+      };
     }
     &Chart {
       &Field {
@@ -15,6 +18,9 @@
         &Calum {
           font-size: 20px;
           color: $fontcolor;
+          @include sp {
+            font-size: 10px;
+          };
         }
         &Form {
           @include form;
