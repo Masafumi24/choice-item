@@ -18,6 +18,10 @@
       overflow-x: auto;
       white-space: nowrap;
       margin: 0 auto;
+      @include sp {
+        width: 260px;  
+        padding: 0;
+      };
       .fa-arrow-circle-right {
         position: absolute;
         right: 25%;
@@ -29,6 +33,10 @@
         height: 600px;
         width: 600px;
         object-fit: contain;
+        @include sp {
+          height: 250px;
+          width: 250px;
+        };
       }
     }
     &Category {
@@ -45,7 +53,9 @@
         color: $fontcolor;
         margin-bottom: 2%;
         font-size: 20px;
-
+        @include sp {
+          font-size: 10px;
+        };
       }
     }
 

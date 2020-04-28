@@ -41,6 +41,9 @@ $sp: 559px;
   font-size: 25px;
   color: $fontcolor;
   margin: 5% 0;
+  @include sp {
+    font-size: 18px;      
+  };
 }
 
 @mixin formField {
