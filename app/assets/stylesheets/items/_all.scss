@@ -92,7 +92,7 @@ $fontcolor:rgb(143, 142, 142);
       font-weight: normal;
       line-height: 2.5;
       @include sp {
-        font-size: 3px;
+        font-size: 15px;
         width: 50vw;
         text-align: left;
       };
@@ -120,7 +120,7 @@ $fontcolor:rgb(143, 142, 142);
       @include sp {
         margin-left: 2px;
         line-height: 100px;
-        font-size: 5px;
+        font-size: 15px;
       };
     }
 
