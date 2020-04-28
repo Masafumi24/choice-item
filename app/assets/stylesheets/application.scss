@@ -8,6 +8,10 @@
   width: 50px;
   border-radius: 50px;
   object-fit: cover;
+  @include sp {
+    height: 30px;
+    width: 30px;
+  };
 }
 @import 'items/index';
 @import 'items/allitem';
