@@ -2,6 +2,9 @@
   height: calc(100vh - 120px);
   box-sizing: border-box;
   padding: 20px 40px;
+  @include sp {
+    height: 50vh;      
+  };
 
   &Image {
     background-image: image-url("IMG_2843.jpeg");
@@ -16,6 +19,9 @@
   width: 100%;
   box-sizing: border-box;
   padding: 30px;
+  @include sp {
+    height: 40vh;      
+  };
 }
 @mixin indexBoxTitle{
   display: flex;
@@ -25,13 +31,16 @@
   height: 10%;
   width: 100%;
   line-height: 1.5;
+  font-size: 30px;
+  @include sp {
+    font-size: 20px;
+    padding: 0;      
+  };
 }
 @mixin indexBoxTitleText {
-  font-size: 30px;
   color: $fontcolor;
 }
 @mixin indexBoxTitleBtn {
-  font-size: 30px;
   color: $fontcolor;
 }
 @mixin indexBoxItem {
@@ -41,12 +50,20 @@
   padding: 20px;
   overflow-x: auto;
   white-space: nowrap;
+  @include sp {
+    padding: 0;      
+  };
 }
 @mixin indexBoxItemImage {
   display: inline;
   height: 300px;
   width: 300px;
   object-fit: cover;
+  @include sp {
+    margin-top: 5px;
+    height: 170px;
+    width: 170px;     
+  };
 }
 
 .indexNew {
