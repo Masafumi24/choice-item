@@ -43,13 +43,19 @@
     }
     #image-box {
       padding-top: 5%;
-      width: 100%;
+      width: 70%;
       margin: 0 auto;
       text-align: left;
+      @include sp {
+        width: 100%;  
+      };
       .newImageBox {
         width: 100%;
-        text-align: left;
+        text-align: center;
         margin-top: 5%;
+        @include sp {
+          text-align: left; 
+        };
         &Group {
           display: flex;
           margin-bottom: 5%;
