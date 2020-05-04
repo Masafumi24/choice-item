@@ -8,13 +8,5 @@ class UsersController < ApplicationController
     @otherUser = User.find(params[:id])
     @otherUseritems = Item.includes_images.where(user_id:(@otherUser.id)).newturn
   end
-    # if user_signed_in?
-    #   @useritems = Item.includes_images.where(user_id:(current_user.id)).newturn
-    #   @otherUser = User.find(params[:id])
-    #   @otherUseritems = Item.includes_images.where(user_id:(@otherUser.id)).newturn
-    # else
-    #   @otherUser = User.find(params[:id])
-    #   @otherUseritems = Item.includes_images.where(user_id:(@otherUser.id)).newturn
-    # end
 
 end
