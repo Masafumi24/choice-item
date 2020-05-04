@@ -5,7 +5,7 @@
       .itemShowBoxUser
         .itemShowBoxUserOwner
           Item Owner
-        =link_to userpage_user_path(@item.user_id) do
+        =link_to user_path(@item.user_id) do
           .itemShowBoxUserName
             =@item.user.nickname
           .itemShowBoxUserName

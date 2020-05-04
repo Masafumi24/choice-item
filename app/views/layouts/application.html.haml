@@ -81,7 +81,7 @@
                   %a{:href => edit_item_path(@item.id), class: "logoutBtn"} Edit
                 %li
                   =link_to "Delete","/items/#{@item.id}", method: :delete, class: "MyPageBtn"
-              -elsif controller.controller_name == 'users' && controller.action_name == 'show' && current_user.id == @user.id
+              -elsif user_signed_in? && controller.controller_name == 'users' && controller.action_name == 'show' && current_user.id == @otherUser.id
                 %li
                   %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
                 %li
