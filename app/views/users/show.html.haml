@@ -27,10 +27,8 @@
   .myPage
     .myPageBox
       .myPageBoxTitle
-        MyPage
+        #{@otherUser.nickname}
       .myPageBoxStatus
-        .myPageBoxStatusName
-          = @otherUser.nickname
         .myPageBoxStatusImage
           - if @otherUser.image.present?
             = image_tag @otherUser.image.url, class: "myPageBoxStatusImageSrc"
