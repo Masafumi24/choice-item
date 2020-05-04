@@ -29,6 +29,9 @@
         top: 75%;
         font-size: 30px;
         color: $fontcolor;
+        @include sp {
+          display: none;
+        }
       }
       &Src {
         height: 600px;

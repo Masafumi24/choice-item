@@ -83,6 +83,10 @@
     &Image {
       @include indexBoxItemImage;
     }
+    &Image:hover{
+      @include indexBoxItemImage;
+      opacity: 0.6;
+    }
   }
 }
 .indexUser {
@@ -100,6 +104,10 @@
     @include indexBoxItem;
     &Image {
       @include indexBoxItemImage;
+    }
+    &Image:hover{
+      @include indexBoxItemImage;
+      opacity: 0.6;
     }
   }
 }

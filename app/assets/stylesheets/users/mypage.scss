@@ -63,9 +63,11 @@
               height: 86px;
             };
           }
-        }
-      }  
+          &Image:hover{
+            opacity: 0.6;
+          }
+        }  
+      }
     }
   }
-
 }
