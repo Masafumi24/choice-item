@@ -5,10 +5,11 @@
       .itemShowBoxUser
         .itemShowBoxUserOwner
           Item Owner
-        .itemShowBoxUserName
-          =@item.user.nickname
-        .itemShowBoxUserName
-          =image_tag @item.user.image.url, class:"iconImageSmall"
+        =link_to user_path(@item.user_id) do
+          .itemShowBoxUserName
+            =@item.user.nickname
+          .itemShowBoxUserName
+            =image_tag @item.user.image.url, class:"iconImageSmall"
     .itemShowBoxTitle
       = @item.name
     .itemShowBoxImage

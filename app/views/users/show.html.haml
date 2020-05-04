@@ -1,24 +1,47 @@
-.myPage
-  .myPageBox
-    .myPageBoxTitle
-      MyPage
-    .myPageBoxStatus
-      .myPageBoxStatusName
-        = @user.nickname
-      .myPageBoxStatusImage
-        - if @user.image.present?
-          = image_tag @user.image.url, class: "myPageBoxStatusImageSrc"
-        - else
-          = image_tag "丸枠付きのカメラのアイコン素材 2.jpeg", class: "myPageBoxStatusImageSrc"
-      - if @useritems.present?
-        .myPageBoxStatusItem
-          .myPageBoxStatusItemTitle
-            -if @user.id == current_user.id
-              My Item Chart
-            -else
-              = "#{@user.nickname}さんのアイテム"
-          .myPageBoxStatusItemChart
-            - @useritems.each do |item|
-              = link_to item_path(item.id) do
-                = image_tag item.images.first.src.url, class: "myPageBoxStatusItemChartImage"
-      -else
+-if user_signed_in? && @otherUser.id == current_user.id
+  .myPage
+    .myPageBox
+      .myPageBoxTitle
+        MyPage
+      .myPageBoxStatus
+        .myPageBoxStatusName
+          = @user.nickname
+        .myPageBoxStatusImage
+          - if @user.image.present?
+            = image_tag @user.image.url, class: "myPageBoxStatusImageSrc"
+          - else
+            = image_tag "丸枠付きのカメラのアイコン素材 2.jpeg", class: "myPageBoxStatusImageSrc"
+        - if @useritems.present?
+          .myPageBoxStatusItem
+            .myPageBoxStatusItemTitle
+              -if @user.id == current_user.id
+                My Item Chart
+              -else
+                = "#{@user.nickname}さんのアイテム"
+            .myPageBoxStatusItemChart
+              - @useritems.each do |item|
+                = link_to item_path(item.id) do
+                  = image_tag item.images.first.src.url, class: "myPageBoxStatusItemChartImage"
+        -else
+-else
+  .myPage
+    .myPageBox
+      .myPageBoxTitle
+        MyPage
+      .myPageBoxStatus
+        .myPageBoxStatusName
+          = @otherUser.nickname
+        .myPageBoxStatusImage
+          - if @otherUser.image.present?
+            = image_tag @otherUser.image.url, class: "myPageBoxStatusImageSrc"
+          - else
+            = image_tag "丸枠付きのカメラのアイコン素材 2.jpeg", class: "myPageBoxStatusImageSrc"
+        - if @otherUser.items.present?
+          .myPageBoxStatusItem
+            .myPageBoxStatusItemTitle
+              = "#{@otherUser.nickname}さんのアイテム"
+            .myPageBoxStatusItemChart
+              - @otherUseritems.each do |item|
+                = link_to item_path(item.id) do
+                  = image_tag item.images.first.src.url, class: "myPageBoxStatusItemChartImage"
+        -else
