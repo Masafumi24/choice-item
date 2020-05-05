@@ -6,10 +6,11 @@
         .itemShowBoxUserOwner
           Item Owner
         =link_to user_path(@item.user_id) do
-          .itemShowBoxUserName
-            =@item.user.nickname
-          .itemShowBoxUserName
-            =image_tag @item.user.image.url, class:"iconImageSmall"
+          -if @item.user.image.present?
+            .itemShowBoxUserName
+              =image_tag @item.user.image.url, class:"iconImageSmall"
+          -else
+            %i.far.fa-user-circle
     .itemShowBoxTitle
       = @item.name
     .itemShowBoxImage

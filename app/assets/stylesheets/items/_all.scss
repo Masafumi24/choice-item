@@ -166,6 +166,9 @@ $fontcolor:rgb(143, 142, 142);
         };  
         .indexRandomItem {
           @include indexBoxItem;
+          font-size: 30px;
+          color: $fontcolor;
+          line-height: 500px;
           &Image {
             @include indexBoxItemImage;
             width: 100%;

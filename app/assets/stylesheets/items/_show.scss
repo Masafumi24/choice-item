@@ -3,9 +3,22 @@
   &Box{
     @include centerContent;
     &User {
-      width: 95%;
       text-align: right;
       color: $fontcolor;
+      &Name {
+        display: inline-block;
+      }
+      &Name:hover {
+        opacity: 0.6;
+      }
+      .fa-user-circle {
+        font-size: 50px;
+        margin-top: 5px;
+        color: $fontcolor;
+      }
+      .fa-user-circle:hover {
+        color: black;
+      }
     }
     &Title{
       @include title;
