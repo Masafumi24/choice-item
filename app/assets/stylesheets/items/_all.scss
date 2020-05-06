@@ -6,7 +6,7 @@ $fontcolor:rgb(143, 142, 142);
   display: flex;
   justify-content: space-between;
   @include sp {
-    height: 100px;
+    height: 80px;
   };
 
   &Left {
@@ -15,9 +15,16 @@ $fontcolor:rgb(143, 142, 142);
     font-size: 35px;
     color: $fontcolor;
     position: relative;
+    @include sp{
+      width: 150px;
+      font-size: 15px;
+    }
     .fa-bars {
       line-height: 120px;
       cursor: pointer;
+      @include sp{
+        line-height: 80px;
+      }
     }
     .fa-bars:hover {
       color: black;
@@ -32,6 +39,10 @@ $fontcolor:rgb(143, 142, 142);
       background-color: white;
       padding: 15px;
       border-radius: 20px;
+      @include sp{
+        width: 100px;
+        top: 35px;
+      }
       &Btn {
         display: block;
         color: $fontcolor;
