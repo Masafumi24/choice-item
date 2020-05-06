@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show, :allitem]
+  before_action :move_to_index, except: [:index, :show, :allitem, :search]
   before_action :random, only: [:index]
   before_action :set_item, only: [:show, :destroy, :edit, :update,]
-  before_action :set_user, only: [:index, :new, :show, :edit, :allitem]
+  before_action :set_user, only: [:index, :new, :show, :edit, :allitem, :search]
   before_action :correct_user, only: [:edit, :update ,:destroy]
 
 
@@ -89,6 +89,10 @@ class ItemsController < ApplicationController
 
   def allitem
     @allItem = Item.includes_images.all.newturn
+  end
+
+  def search
+    @items = Item.search(params[:keyword]).includes_images
   end
 
   private

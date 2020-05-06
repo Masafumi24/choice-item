@@ -19,4 +19,12 @@ class Item < ApplicationRecord
   scope :includes_images, -> {includes(:images)}
   scope :includes_images_user, -> {includes(:images, :user)}
 
+  def self.search(search)
+    if search
+      Item.where('name LIKE(?) OR brand LIKE(?) OR status LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%").order(id: "DESC")
+    else
+      Item.all
+    end
+  end
+
 end
