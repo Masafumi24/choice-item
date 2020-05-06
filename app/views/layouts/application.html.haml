@@ -12,110 +12,78 @@
     .header
       .headerLeft
         %i.fas.fa-bars
-          %ul.headerLeftList
-            %li.headerLeftListBtn
-              アイテム投稿
-            %li.headerLeftListRandomBtn
+        .headerLeftList
+          = link_to "アイテム投稿",new_item_path, class:"headerLeftListBtn"
+          - if controller.controller_name == 'items' && controller.action_name == 'index'
+            .headerLeftListRandomBtn
               ランダムチョイス
-              %ul.headerLeftListBtnRandom
-                %li.headerLeftListBtnRandomChoice
-                  春服チョイス
-                %li.headerLeftListBtnRandomChoice
-                  夏服チョイス
-                %li.headerLeftListBtnRandomChoice
-                  秋服チョイス
-                %li.headerLeftListBtnRandomChoice
-                  冬服チョイス
-            %li.headerLeftListBtn
-              検索
-      -#   = link_to "New Item", new_item_path, class:"headerLeftMenu"
-      -#   - if controller.controller_name == 'items' && controller.action_name == 'index'
-      -#     %ul#menu
-      -#       %li
-      -#         = link_to "Random", "#", class:"headerLeftMenu"
-      -#         = link_to "", root_path(@item), id: 'itemRandomBtn'
-      -#         %ul
-      -#           %li
-      -#             %a{:href => "#", class: "logoutBtn", id: 'modalOpenBtn1'} Spring Choice
-      -#           %li
-      -#             %a{:href => "#", class: "MyPageBtn", id: 'modalOpenBtn2'} Summer Choice
-      -#           %li
-      -#             %a{:href => "#", class: "logoutBtn", id: 'modalOpenBtn3'} Autumn Choice
-      -#           %li
-      -#             %a{:href => "#", class: "MyPageBtn", id: 'modalOpenBtn4'} Winter Choice
-      -#           #overlay1
-      -#             #modalWindow
-      -#               .indexRandomItem
-      -#                 - if @itemsuser.present? && @random_spring.present?
-      -#                   -@random_spring.each do |item|
-      -#                     =image_tag item.images.first.src.url,class: "indexRandomItemImage"
-      -#                 - else
-      -#                   春服の投稿はまだありません
-      -#               -# %button#modalCloseBtn OK
-      -#               %button#randomReturnBtn1 OK   
-      -#           #overlay2
-      -#             #modalWindow
-      -#               .indexRandomItem
-      -#                 - if @itemsuser.present? && @random_summer.present?
-      -#                   -@random_summer.each do |item|
-      -#                     =image_tag item.images.first.src.url,class: "indexRandomItemImage"
-      -#                 - else
-      -#                   夏服の投稿はまだありません
-      -#               -# %button#modalCloseBtn OK
-      -#               %button#randomReturnBtn2 OK    
-      -#           #overlay3
-      -#             #modalWindow
-      -#               .indexRandomItem
-      -#                 - if @itemsuser.present? && @random_autumn.present?
-      -#                   -@random_autumn.each do |item|
-      -#                     =image_tag item.images.first.src.url,class: "indexRandomItemImage"
-      -#                 - else
-      -#                   秋服の投稿はまだありません
-      -#               -# %button#modalCloseBtn OK
-      -#               %button#randomReturnBtn3 OK   
-      -#           #overlay4
-      -#             #modalWindow
-      -#               .indexRandomItem
-      -#                 - if @itemsuser.present? && @random_winter.present?
-      -#                   -@random_winter.each do |item|
-      -#                     =image_tag item.images.first.src.url,class: "indexRandomItemImage"
-      -#                 - else
-      -#                   冬服の投稿はまだありません
-      -#               -# %button#modalCloseBtn OK
-      -#               %button#randomReturnBtn4 OK
-      -#   = link_to "Search", search_items_path, class:"headerLeftMenu"
+              = link_to "", root_path(@item), id: 'itemRandomBtn' 
+              .headerLeftListBtnRandom
+                =link_to "春服チョイス", "#", id:'modalOpenBtn1', class:"headerLeftListBtnRandomChoice"
+                =link_to "夏服チョイス", "#", id:'modalOpenBtn2', class:"headerLeftListBtnRandomChoice"
+                =link_to "秋服チョイス", "#", id:'modalOpenBtn3', class:"headerLeftListBtnRandomChoice"
+                =link_to "冬服チョイス", "#", id:'modalOpenBtn4', class:"headerLeftListBtnRandomChoice"
+          = link_to "検索", search_items_path, class:"headerLeftListBtn"
+          #overlay1
+            #modalWindow
+              .indexRandomItem
+                - if @itemsuser.present? && @random_spring.present?
+                  -@random_spring.each do |item|
+                    =image_tag item.images.first.src.url,class: "indexRandomItemImage"
+                - else
+                  春服の投稿はまだありません
+              -# %button#modalCloseBtn OK
+              %button#randomReturnBtn1 OK  
+          #overlay2
+            #modalWindow
+              .indexRandomItem
+                - if @itemsuser.present? && @random_summer.present?
+                  -@random_summer.each do |item|
+                    =image_tag item.images.first.src.url,class: "indexRandomItemImage"
+                - else
+                  夏服の投稿はまだありません
+              -# %button#modalCloseBtn OK
+              %button#randomReturnBtn2 OK    
+          #overlay3
+            #modalWindow
+              .indexRandomItem
+                - if @itemsuser.present? && @random_autumn.present?
+                  -@random_autumn.each do |item|
+                    =image_tag item.images.first.src.url,class: "indexRandomItemImage"
+                - else
+                  秋服の投稿はまだありません
+              -# %button#modalCloseBtn OK
+              %button#randomReturnBtn3 OK   
+          #overlay4
+            #modalWindow
+              .indexRandomItem
+                - if @itemsuser.present? && @random_winter.present?
+                  -@random_winter.each do |item|
+                    =image_tag item.images.first.src.url,class: "indexRandomItemImage"
+                - else
+                  冬服の投稿はまだありません
+              -# %button#modalCloseBtn OK
+              %button#randomReturnBtn4 OK                 
       =link_to "Choice Item", "/", class:"headerCenter"
       .headerRight
-        -# %ul#menu
-        -#   %li
-        -#     - if user_signed_in? && @user.image.present?
-        -#       =link_to "#" do
-        -#         =image_tag @user.image.url, class:"iconImageSmall"
-        -#     -else
-        -#       %a{:href => "#",class:"fas fa-angle-double-down"} 
-        -#     %ul
-        -#       -if controller.controller_name == 'items' && controller.action_name == 'show' && current_user_has?(@item)
-        -#         %li
-        -#           %a{:href => edit_item_path(@item.id), class: "logoutBtn"} Edit
-        -#         %li
-        -#           =link_to "Delete","/items/#{@item.id}", method: :delete, class: "MyPageBtn"
-        -#       -elsif user_signed_in? && controller.controller_name == 'users' && controller.action_name == 'show' && current_user.id == @otherUser.id
-        -#         %li
-        -#           %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
-        -#         %li
-        -#           %a{:href => user_path(current_user.id),class: "MyPageBtn"} My Page
-        -#         %li
-        -#           =link_to "User Edit",edit_user_registration_path(current_user.id),class: "MyPageBtn"
-        -#       - elsif user_signed_in?
-        -#         %li
-        -#           %a{:href => destroy_user_session_path, method: :delete, class: "logoutBtn"} Log Out
-        -#         %li
-        -#           %a{:href => user_path(current_user.id),class: "MyPageBtn"} My Page
-        -#       - else
-        -#         %li
-        -#           %a{:href => new_user_registration_path, class: "signUpBtn"} Sign up
-        -#         %li
-        -#           %a{:href => user_session_path, class: "logInBtn"} Login
+        - if user_signed_in? && @user.image.present?
+          =image_tag @user.image.url, class:"iconImageSmall"
+        - else
+          %i.fas.fa-angle-double-down
+        .headerRightList
+          -if controller.controller_name == 'items' && controller.action_name == 'show' && current_user_has?(@item)
+            = link_to "アイテム情報編集", edit_item_path(@item.id), class:"headerRightListBtn"
+            = link_to "アイテム削除", "/items/#{@item.id}", method: :delete, class:"headerRightListBtn"
+          - elsif user_signed_in? && controller.controller_name == 'users' && controller.action_name == 'show' && current_user.id == @otherUser.id
+            = link_to "マイページ", user_path(current_user.id), class:"headerRightListBtn"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"headerRightListBtn"
+            = link_to "ユーザー情報編集", edit_user_registration_path(current_user.id), class:"headerRightListBtn"
+          - elsif user_signed_in?
+            = link_to "マイページ", user_path(current_user.id), class:"headerRightListBtn"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"headerRightListBtn"
+          - else
+            = link_to "新規登録", new_user_registration_path, class:"headerRightListBtn"
+            = link_to "ログイン", user_session_path, class:"headerRightListBtn"
     = yield
     .footer
       .footerBox

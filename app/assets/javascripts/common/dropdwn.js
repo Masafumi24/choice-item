@@ -1,22 +1,14 @@
 $(function(){
 
-  $('.fa-bars').click(
-    function(){
-      $(".headerLeftList").slideDown();
-    }
-  );
-
-  $('.headerLeftListRandomBtn').click(
-    function(){
-      $(".headerLeftListBtnRandom").slideDown();
-    }
-  );
-
-  $('body').click(function() {
-    if ($('.headerLeft').click == false) {
-      $('ul').removeClass('headerLeftList');
-      // $('ul').slideUp('headerLeft');
-    }
+  $('.headerLeft .fa-bars').click(function(){
+      $('.headerLeftList').slideToggle();
+  })
+  $('.headerLeftListRandomBtn').click(function(){
+    $('.headerLeftListBtnRandom').slideToggle();
   });
+
+  $('.headerRight .iconImageSmall,.fa-angle-double-down').click(function(){
+    $('.headerRightList').slideToggle();
+  })
 
 });

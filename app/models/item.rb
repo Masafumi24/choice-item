@@ -21,7 +21,7 @@ class Item < ApplicationRecord
 
   def self.search(search)
     if search
-      Item.where('name LIKE(?) OR brand LIKE(?) OR status LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%")
+      Item.where('name LIKE(?) OR brand LIKE(?) OR status LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%").order(id: "DESC")
     else
       Item.all
     end

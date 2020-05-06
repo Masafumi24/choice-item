@@ -1,5 +1,4 @@
 $fontcolor:rgb(143, 142, 142);
-$TiffanyBlue:rgb(42, 252, 224);
 
 .header {
   height: 120px;
@@ -18,6 +17,10 @@ $TiffanyBlue:rgb(42, 252, 224);
     position: relative;
     .fa-bars {
       line-height: 120px;
+      cursor: pointer;
+    }
+    .fa-bars:hover {
+      color: black;
     }
     &List {
       display: none;
@@ -25,118 +28,45 @@ $TiffanyBlue:rgb(42, 252, 224);
       line-height: 40px;
       position: absolute;
       top: 90px;
-      background-color: $TiffanyBlue;
+      left: 130px;
+      background-color: white;
       padding: 15px;
       border-radius: 20px;
       &Btn {
+        display: block;
+        color: $fontcolor;
         font-size: 20px;
         border-bottom: 1px solid;
       }
       &Btn:hover {
         color: black;
       }
-      .headerLeftListRandomBtn{
+      &RandomBtn{
+        cursor: pointer;
         font-size: 20px;
         border-bottom: 1px solid;
-        position: relative;  
+        position: relative;
         .headerLeftListBtnRandom {
+          width: 200px;
           display: none;
           position: absolute;
           top: 0;
           left: 190px;
           font-size: 20px;
-          border-bottom: 1px solid;
-          background-color: $TiffanyBlue;
+          background-color: white;
           padding: 15px;
           border-radius: 20px;    
           &Choice{
-            width: 200px;
+            display: block;
             border-bottom: 1px solid;
           }
-        }
-      }
-    }
-
-
-
-
-    &Menu:hover{
-      color: black;
-    }
-    #overlay1,
-    #overlay2,
-    #overlay3,
-    #overlay4 {
-      //モーダルウィンドウの背景を設定
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-      //透過度をつける
-        background: rgba(0, 0, 0, 0.3);
-        display: none;
-        z-index: 1;
-      }
-      
-      #modalWindow {
-      // モーダルウィンドウの画面を設定
-        box-sizing: border-box;
-        width: 600px;
-        height: 600px;
-        position: absolute;
-      //トップからの場所を指定
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        z-index: 2;
-      //flexboxで子要素のボタンとメッセージボックスの要素を配置する
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        @include sp {
-          width: 300px;
-          height: 300px;
-        };  
-        .indexRandomItem {
-          @include indexBoxItem;
-          font-size: 30px;
-          color: $fontcolor;
-          line-height: 500px;
-          &Image {
-            @include indexBoxItemImage;
-            width: 100%;
-            height: 100%;
-            margin-bottom: 0;
+          &Choice:hover{
+            color: black;
           }
-        }    
-      
-        #modalCloseBtn {
-          width: 50%;
-          height: 60px;
-        }
-      
-        #randomReturnBtn1,
-        #randomReturnBtn2,
-        #randomReturnBtn3,
-        #randomReturnBtn4{
-          width: 70%;
-          height: 60px;
-          margin: 0 auto;
         }
       }
-      
-      #itemRandomBtn {
-      //削除ボタンの非表示
-        width: 0;
-        height: 0;
-        margin: 0;
-        padding: 0;
-        border: 0;
-      }
+    }
   }
-
   &Center {
     color: $fontcolor;
     height: 120px;
@@ -150,23 +80,51 @@ $TiffanyBlue:rgb(42, 252, 224);
     };
   }
   &Right {
-    height: 120px;
-    width: 200px;
-    @include sp {
-      height: 100px;
-      padding: 20px;
-    };
+    width: 300px;
+    text-align: center;
+    color: $fontcolor;
+    position: relative;
+    .iconImageSmall {
+      position: absolute;
+      top: 35px;
+      left: 125px;
+    }
+    .iconImageSmall:hover {
+      opacity: 0.6;
+    }
+    .fa-angle-double-down{
+      font-size: 40px;
+      color: $fontcolor;
+      line-height: 120px;
+      @include sp {
+        font-size: 15px;
+      };
+    }
+    .fa-angle-double-down:hover{
+      color: black;
+    }    
+    &List {
+      display: none;
+      font-size: 20px;
+      width: 200px;
+      line-height: 40px;
+      position: absolute;
+      top: 90px;
+      right: 130px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 20px;
+      &Btn {
+        display: block;
+        border-bottom: 1px solid;
+        color: $fontcolor;
+      }
+      &Btn:hover {
+        color: black;
+      }
+    }
   } 
 }
-// .fa-angle-double-down{
-//   font-size: 30px;
-//   color: $fontcolor;
-//   line-height: 3;
-//   @include sp {
-//     font-size: 15px;
-//   };
-// }
-
 .footer {
   background-color: rgb(236, 236, 236);
   width: 100vw;
@@ -198,3 +156,81 @@ $TiffanyBlue:rgb(42, 252, 224);
     }
   }
 }
+
+.headerLeftListRandomBtn:hover{
+  color: black;
+}
+
+// モーダルウィンドウ
+#overlay1,
+#overlay2,
+#overlay3,
+#overlay4 {
+  //モーダルウィンドウの背景を設定
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  //透過度をつける
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1;
+  }
+  
+  #modalWindow {
+  // モーダルウィンドウの画面を設定
+    box-sizing: border-box;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+  //トップからの場所を指定
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 2;
+  //flexboxで子要素のボタンとメッセージボックスの要素を配置する
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include sp {
+      width: 300px;
+      height: 300px;
+    };  
+    .indexRandomItem {
+      @include indexBoxItem;
+      font-size: 30px;
+      color: $fontcolor;
+      line-height: 500px;
+      &Image {
+        @include indexBoxItemImage;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0;
+      }
+    }    
+  
+    #modalCloseBtn {
+      width: 50%;
+      height: 60px;
+    }
+  
+    #randomReturnBtn1,
+    #randomReturnBtn2,
+    #randomReturnBtn3,
+    #randomReturnBtn4{
+      width: 70%;
+      height: 60px;
+      margin: 0 auto;
+    }
+  }
+  
+  #itemRandomBtn {
+  //削除ボタンの非表示
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
