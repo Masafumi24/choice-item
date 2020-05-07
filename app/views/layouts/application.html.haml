@@ -14,7 +14,7 @@
         %i.fas.fa-bars
         .headerLeftList
           = link_to "アイテム投稿",new_item_path, class:"headerLeftListBtn"
-          - if citems_only_action_name == 'index'
+          - if items_only_action_name == 'index'
             .headerLeftListRandomBtn
               ランダムチョイス
               = link_to "", root_path(@item), id: 'itemRandomBtn' 

@@ -12,6 +12,18 @@
     background-size: cover;
     background-position: bottom;
     height: 95%;
+    position: relative;
+    &Text {
+      height: 60px;
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      @include sp {
+        height: 23px;
+        top: 40px;
+        left: 10px;
+      }
+    }
   }
 }
 // ---------ここまでがワンブロック目------------
