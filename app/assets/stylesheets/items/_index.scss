@@ -3,7 +3,8 @@
   box-sizing: border-box;
   padding: 20px 40px;
   @include sp {
-    height: 50vh;      
+    height: 50vh; 
+    padding: 5px 40px;     
   };
 
   &Image {

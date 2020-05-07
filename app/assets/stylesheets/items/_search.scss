@@ -15,6 +15,10 @@
       padding: 15px 40px;
       background-color: rgb(192, 191, 191);
       margin-bottom: 40px;
+      @include sp {
+        font-size: 10px;
+        padding: 2px 10px;
+      }
     }
   }
 }

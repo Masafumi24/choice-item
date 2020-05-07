@@ -16,7 +16,7 @@ $fontcolor:rgb(143, 142, 142);
     color: $fontcolor;
     position: relative;
     @include sp{
-      width: 150px;
+      width: 100px;
       font-size: 15px;
     }
     .fa-bars {
@@ -37,17 +37,22 @@ $fontcolor:rgb(143, 142, 142);
       top: 90px;
       left: 130px;
       background-color: white;
-      padding: 15px;
+      padding: 10px;
       border-radius: 20px;
       @include sp{
-        width: 100px;
-        top: 35px;
+        line-height: 25px;
+        width: 120px;
+        top: 60px;
+        left: 30px;
       }
       &Btn {
         display: block;
         color: $fontcolor;
         font-size: 20px;
         border-bottom: 1px solid;
+        @include sp {
+          font-size: 12px;
+        }
       }
       &Btn:hover {
         color: black;
@@ -57,6 +62,9 @@ $fontcolor:rgb(143, 142, 142);
         font-size: 20px;
         border-bottom: 1px solid;
         position: relative;
+        @include sp {
+          font-size: 12px;
+        }
         .headerLeftListBtnRandom {
           width: 200px;
           display: none;
@@ -65,8 +73,14 @@ $fontcolor:rgb(143, 142, 142);
           left: 190px;
           font-size: 20px;
           background-color: white;
-          padding: 15px;
-          border-radius: 20px;    
+          padding: 10px;
+          border-radius: 20px;     
+          @include sp{
+            width: 150px;
+            font-size: 15px;
+            left: 110px;
+            line-height: 25px;
+          }        
           &Choice{
             display: block;
             border-bottom: 1px solid;
@@ -85,9 +99,10 @@ $fontcolor:rgb(143, 142, 142);
     font-size: 50px;
     line-height: 120px;
     @include sp {
-      font-size: 23px;
-      height: 100px;
-      line-height: 100px;
+      font-size: 25px;
+      width: 150px;
+      height: 80px;
+      line-height: 80px;
     };
   }
   &Right {
@@ -95,10 +110,18 @@ $fontcolor:rgb(143, 142, 142);
     text-align: center;
     color: $fontcolor;
     position: relative;
+    @include sp{
+      width: 100px;
+      font-size: 15px;
+    }
     .iconImageSmall {
       position: absolute;
       top: 35px;
       left: 125px;
+      @include sp {
+        top: 20px;
+        left: 40px;
+      }
     }
     .iconImageSmall:hover {
       opacity: 0.6;
@@ -109,6 +132,7 @@ $fontcolor:rgb(143, 142, 142);
       line-height: 120px;
       @include sp {
         font-size: 15px;
+        line-height: 80px;
       };
     }
     .fa-angle-double-down:hover{
@@ -125,10 +149,19 @@ $fontcolor:rgb(143, 142, 142);
       background-color: white;
       padding: 15px;
       border-radius: 20px;
+      @include sp{
+        line-height: 25px;
+        width: 120px;
+        top: 60px;
+        right: 30px;
+      }
       &Btn {
         display: block;
         border-bottom: 1px solid;
         color: $fontcolor;
+        @include sp {
+          font-size: 12px;
+        }
       }
       &Btn:hover {
         color: black;
@@ -213,11 +246,10 @@ $fontcolor:rgb(143, 142, 142);
       @include indexBoxItem;
       font-size: 30px;
       color: $fontcolor;
-      line-height: 500px;
       &Image {
         @include indexBoxItemImage;
         width: 100%;
-        height: 100%;
+        // height: 100%;
         margin-bottom: 0;
       }
     }    
