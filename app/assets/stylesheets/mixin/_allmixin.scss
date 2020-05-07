@@ -65,3 +65,8 @@ $sp: 559px;
   };
 }
 
+// spacebetween
+@mixin sideOut {
+  display: flex;
+  justify-content: space-between;
+}

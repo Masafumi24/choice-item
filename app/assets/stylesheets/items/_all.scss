@@ -3,8 +3,7 @@ $fontcolor:rgb(143, 142, 142);
 .header {
   height: 120px;
   width: 100vw;
-  display: flex;
-  justify-content: space-between;
+  @include sideOut;
   @include sp {
     height: 80px;
   };

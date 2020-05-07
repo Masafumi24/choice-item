@@ -30,10 +30,9 @@
       &Item {
         width: 100%;
         &Title {
+          @include sideOut;
           background-color: white;
           border-top: 1px solid $fontcolor;
-          display: flex;
-          justify-content: space-between;
           font-size: 30px;
           color: $fontcolor;
           box-sizing: border-box;

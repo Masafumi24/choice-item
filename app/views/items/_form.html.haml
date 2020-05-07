@@ -41,7 +41,7 @@
     ※Macから投稿される場合HEIC HEIF画像は投稿できない場合があります
   #image-box
     #imagePre
-      -if @item.persisted?
+      -if edit?
         - @item.images.each_with_index do |image, i|
           = image_tag image.src.url, data: { index: i }, class: 'smallImage', width: "100", height: '100'
     .newImageBox
@@ -49,13 +49,14 @@
         .newImageBoxGroup{"data-index" => "#{image.index}"}
           =image.file_field :src, class: 'newImageBoxGroupForm'
           %span.newImageBoxGroupRemove 削除
-        - if @item.persisted?
+        - if edit?
           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-      - if @item.persisted?
+      - if edit?
         .newImageBoxGroup{"data-index" => "#{@item.images.count}"}
           = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'newImageBoxGroupForm'
           .newImageBoxGroupRemove 削除
-  -if controller_name == "items" && action_name == "new"
+  -# -if controller_name == "items" && action_name == "new"
+  -if items_only_action_name == "new"
     .newImageTitle
       カテゴリー
     .CategoryBox
@@ -66,7 +67,7 @@
           .listing-select-wrapper__box
             = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
     = f.submit class: "newItemSubmit", value: "New Item Create"
-  -if controller_name == "items" && action_name == "edit"
+  -if items_only_action_name == "edit"
     .newImageTitle
       Category
     .CategoryBox

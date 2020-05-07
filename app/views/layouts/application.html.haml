@@ -14,7 +14,7 @@
         %i.fas.fa-bars
         .headerLeftList
           = link_to "アイテム投稿",new_item_path, class:"headerLeftListBtn"
-          - if controller.controller_name == 'items' && controller.action_name == 'index'
+          - if citems_only_action_name == 'index'
             .headerLeftListRandomBtn
               ランダムチョイス
               = link_to "", root_path(@item), id: 'itemRandomBtn' 
@@ -71,7 +71,7 @@
         - else
           %i.fas.fa-angle-double-down
         .headerRightList
-          -if controller.controller_name == 'items' && controller.action_name == 'show' && current_user_has?(@item)
+          -if items_only_action_name == 'show' && current_user_has?(@item)
             = link_to "アイテム情報編集", edit_item_path(@item.id), class:"headerRightListBtn"
             = link_to "アイテム削除", "/items/#{@item.id}", method: :delete, class:"headerRightListBtn"
           - elsif user_signed_in? && controller.controller_name == 'users' && controller.action_name == 'show' && current_user.id == @otherUser.id

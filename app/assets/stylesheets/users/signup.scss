@@ -41,8 +41,7 @@
     }    
   }
   &Imagepre {
-    display: flex;
-    justify-content: space-between;
+    @include sideOut;
     .fas {
       height: 40px;
       width: 40px;
