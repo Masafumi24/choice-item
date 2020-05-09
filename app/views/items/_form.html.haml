@@ -55,7 +55,6 @@
         .newImageBoxGroup{"data-index" => "#{@item.images.count}"}
           = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'newImageBoxGroupForm'
           .newImageBoxGroupRemove 削除
-  -# -if controller_name == "items" && action_name == "new"
   -if items_only_action_name == "new"
     .newImageTitle
       カテゴリー
