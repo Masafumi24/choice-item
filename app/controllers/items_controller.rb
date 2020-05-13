@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
   before_action :set_user, only: [:index, :new, :show, :edit, :allitem, :search]
   before_action :correct_user, only: [:edit, :update ,:destroy]
 
-
   def index
     @items = Item.includes_images_user.new_chart_10
     if user_signed_in?
