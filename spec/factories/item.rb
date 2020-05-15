@@ -2,12 +2,13 @@ FactoryBot.define do
 
   factory :item do
     name              {""}
-    status            {"去年の夏に購入したTシャツ"}
-    brand             {"Supreme"}
+    status            {"aa"}
+    brand             {"aa"}
     spring_id         {1}
     summer_id         {nil}
     autumn_id         {1}
     winter_id         {nil}
+    category_id       {100}
   end
 
 end
