@@ -95,15 +95,22 @@ $fontcolor:rgb(143, 142, 142);
   &Center {
     color: $fontcolor;
     height: 120px;
-    width: 300px;
-    font-size: 50px;
+    width: 400px;
     line-height: 120px;
     @include sp {
-      font-size: 25px;
       width: 150px;
       height: 80px;
       line-height: 80px;
     };
+    &Image {
+      width: 400px;
+      height: 120px;
+      line-height: 100px;
+      @include sp {
+        width: 170px;
+        height: 60px;
+      };
+    }
   }
   &Right {
     width: 300px;

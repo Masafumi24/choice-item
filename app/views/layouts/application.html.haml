@@ -64,7 +64,8 @@
                   冬服の投稿はまだありません
               -# %button#modalCloseBtn OK
               %button#randomReturnBtn4 OK                 
-      =link_to "Choice Item", "/", class:"headerCenter"
+      =link_to "/", class:"headerCenter" do
+        =image_tag "choice.png", class:"headerCenterImage"
       .headerRight
         - if user_signed_in? && @user.image.present?
           =image_tag @user.image.url, class:"iconImageSmall"
