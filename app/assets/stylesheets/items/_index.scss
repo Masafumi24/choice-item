@@ -25,6 +25,18 @@
       }
     }
   }
+  .fa-angle-double-down {
+    position: absolute;
+    left: 50vw;
+    font-size: 40px;
+    color: rgb(143, 142, 142);
+    @include sp {
+      display: none;
+    }
+  }
+  .fa-angle-double-down:hover {
+    color: black;
+  }
 }
 // ---------ここまでがワンブロック目------------
 @mixin indexBox {

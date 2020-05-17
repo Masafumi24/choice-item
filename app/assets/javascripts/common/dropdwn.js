@@ -7,7 +7,7 @@ $(function(){
     $('.headerLeftListBtnRandom').slideToggle();
   });
 
-  $('.headerRight .iconImageSmall,.fa-angle-double-down').click(function(){
+  $('.headerRight .iconImageSmall,.fa-user-circle').click(function(){
     $('.headerRightList').slideToggle();
   })
 

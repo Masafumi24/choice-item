@@ -1,8 +1,10 @@
 .indexContent
   .indexContentImage
     = image_tag "whitelogo.png", class:"indexContentImageText"
+  = link_to "#smooth" do
+    %i.fas.fa-angle-double-down
 - if @itemsuser.present?
-  .indexUser
+  .indexUser#smooth
     .indexUserTitle
       = link_to user_path(current_user.id) do
         .indexUserTitleText
@@ -15,7 +17,7 @@
         = link_to item_path(item.id) do
           =image_tag item.images.first.src.url, class: "indexUserItemImage"
 - if @items.present?
-  .indexNew
+  .indexNew#smooth
     .indexNewTitle
       =link_to allitem_items_path do
         .indexNewTitleText

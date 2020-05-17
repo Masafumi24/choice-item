@@ -70,7 +70,7 @@
         - if user_signed_in? && @user.image.present?
           =image_tag @user.image.url, class:"iconImageSmall"
         - else
-          %i.fas.fa-angle-double-down
+          %i.far.fa-user-circle
         .headerRightList
           -if items_only_action_name == 'show' && current_user_has?(@item)
             = link_to "アイテム情報編集", edit_item_path(@item.id), class:"headerRightListBtn"
