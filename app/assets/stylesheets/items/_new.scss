@@ -62,10 +62,29 @@
           &Form {
             text-align: left, bottom;
             color: $fontcolor;
+            background-color: rgba(71, 255, 240, 0.568);
+            font-size: 15px;
+            padding: 5px;
+            box-shadow: 2px 2px;
+          }
+          &Form:hover {
+            color: black;
+          }
+          &FormNone {
+            text-align: left, bottom;
+            color: $fontcolor;
+            display: none;
           }
           &Remove {
             text-align: left, bottom;
             color: $fontcolor;
+            margin-left: 5px;
+            font-size: 15px;
+            padding: 5px;
+            box-shadow: 2px 2px;
+          }
+          &Remove:hover {
+            color: black;
           }
         }
       }

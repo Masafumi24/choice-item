@@ -47,7 +47,8 @@
     .newImageBox
       = f.fields_for :images do |image| 
         .newImageBoxGroup{"data-index" => "#{image.index}"}
-          =image.file_field :src, class: 'newImageBoxGroupForm'
+          =image.label :src, "ファイルを開く",class: 'newImageBoxGroupForm'
+          =image.file_field :src, class: 'newImageBoxGroupFormNone'
           %span.newImageBoxGroupRemove 削除
         - if edit?
           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
