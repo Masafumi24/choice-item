@@ -67,7 +67,9 @@
             padding: 5px;
             box-shadow: 2px 2px;
             @include sp {
-              margin-left: 4px;
+              margin-left: 10px;
+              font-size: 10px;
+              padding: 2px;
             }
           }
           &Form:hover {
@@ -85,6 +87,11 @@
             font-size: 15px;
             padding: 5px;
             box-shadow: 2px 2px;
+            @include sp {
+              margin-left: 4px;
+              font-size: 10px;
+              padding: 2px;
+            }
           }
           &Remove:hover {
             color: black;
@@ -129,7 +136,8 @@
   font-size: 15px;
   @include sp {
     font-size: 15px; 
-    box-shadow: 2px 2px;     
+    box-shadow: 2px 2px;
+    padding: 5px;     
   };
 }
 
@@ -170,7 +178,7 @@ input[type="checkbox"] + label:before {
   transition: all .12s, border-color .08s;
   @include sp {
     height: 10px; 
-    width: 10px;     
+    width: 10px;   
   };
 }
 
@@ -189,7 +197,7 @@ input[type="checkbox"]:checked + label:before {
 .listing-default--require {
   color: $fontcolor;
   @include sp {
-    font-size: 7px;      
+    font-size: 10px;      
   };
 }
 
