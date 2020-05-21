@@ -20,7 +20,7 @@
         color: $fontcolor;
         text-align: left;
         @include sp {
-          font-size: 7px;
+          font-size: 15px;
         };
       }
       &Form {
@@ -38,7 +38,7 @@
       width: 70%;
       margin: 0 auto;
       @include sp {
-        font-size: 7px;  
+        font-size: 15px;  
       };
     }
     #image-box {
@@ -66,6 +66,9 @@
             font-size: 15px;
             padding: 5px;
             box-shadow: 2px 2px;
+            @include sp {
+              margin-left: 4px;
+            }
           }
           &Form:hover {
             color: black;
@@ -125,7 +128,8 @@
   color: $fontcolor;
   font-size: 15px;
   @include sp {
-    font-size: 7px;      
+    font-size: 15px; 
+    box-shadow: 2px 2px;     
   };
 }
 
