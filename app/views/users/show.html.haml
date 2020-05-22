@@ -27,7 +27,7 @@
   .myPage
     .myPageBox
       .myPageBoxTitle
-        #{@otherUser.nickname}
+        = @otherUser.nickname
       .myPageBoxStatus
         .myPageBoxStatusImage
           - if @otherUser.image.present?
