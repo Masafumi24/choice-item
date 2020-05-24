@@ -53,11 +53,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
   end
 
-  def set_user
-    @user = User.find(current_user.id)
-  end
-
-
   # def configure_permitted_parameters
   #   devise_parameter_sanitizer.for(:account_update) do |u|
   #     u.permit(:name,
