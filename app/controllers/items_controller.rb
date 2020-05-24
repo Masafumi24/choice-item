@@ -7,11 +7,8 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes_images_user.new_chart_10
-    if user_signed_in?
-      @itemsuser = Item.find_by(user_id:(current_user.id))
-      @useritems = Item.includes_images.where(user_id:(current_user.id)).new_chart_10
-    else
-    end
+    @itemsuser = Item.find_by(user_id:(current_user.id)) if user_signed_in?
+    @useritems = Item.includes_images.where(user_id:(current_user.id)).new_chart_10 if user_signed_in?
   end
 
   def new
@@ -31,6 +28,11 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  # def create
+  #   @item = Item.new(item_params)
+  #   category_id_params
+  #   @item.save ? "redirect_to root_path" : "redirect_to new_item_path"
+  # end
   def create
     @item = Item.new(item_params)
     category_id_params

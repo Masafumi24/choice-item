@@ -75,11 +75,6 @@
           &Form:hover {
             color: black;
           }
-          &FormNone {
-            text-align: left, bottom;
-            color: $fontcolor;
-            display: none;
-          }
           &Remove {
             text-align: left, bottom;
             color: $fontcolor;
@@ -199,5 +194,4 @@ input[type="checkbox"]:checked + label:before {
     font-size: 10px;      
   };
 }
-
 }
