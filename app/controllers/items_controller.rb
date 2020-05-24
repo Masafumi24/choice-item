@@ -28,19 +28,10 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
-  # def create
-  #   @item = Item.new(item_params)
-  #   category_id_params
-  #   @item.save ? "redirect_to root_path" : "redirect_to new_item_path"
-  # end
   def create
     @item = Item.new(item_params)
     category_id_params
-    if @item.save
-      redirect_to root_path
-    else
-      redirect_to new_item_path
-    end
+    (@item.save) ? (redirect_to root_path) : (redirect_to new_item_path)
   end
 
   def destroy
@@ -72,11 +63,7 @@ class ItemsController < ApplicationController
 
   def update
     category_id_params
-    if @item.update(item_params)
-      redirect_to root_path
-    else 
-      redirect_to edit_item_path
-    end
+    (@item.update(item_params)) ? (redirect_to root_path) : (redirect_to edit_item_path)
   end
 
   def random
@@ -93,13 +80,17 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.search(params[:keyword]).includes_images
+    @items = Item.search(params[:keyword]).includes_images.newturn
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :brand, :status, :spring_id, :summer_id, :autumn_id, :winter_id, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(
+      :name, :brand, :status, 
+      :spring_id, :summer_id, :autumn_id, :winter_id, 
+      images_attributes: [:src, :_destroy, :id])
+      .merge(user_id: current_user.id)
   end
 
   def category_id_params
