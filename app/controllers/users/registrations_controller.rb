@@ -46,13 +46,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.update_without_password(params)
   end
 
-  def correct_user
-    @current_user = User.find(current_user.id)
-      unless @current_user
-        redirect_to root_url
-      end
-  end
-
   # def configure_permitted_parameters
   #   devise_parameter_sanitizer.for(:account_update) do |u|
   #     u.permit(:name,
