@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show, :allitem, :search]
+  before_action :back_index, except: [:index, :show, :allitem, :search]
   before_action :random, only: [:index]
   before_action :set_item, only: [:show, :destroy, :edit, :update,]
   before_action :set_user, only: [:index, :new, :show, :edit, :allitem, :search]
@@ -98,7 +98,7 @@ class ItemsController < ApplicationController
     @item[:category_id] = category[:category_id]
   end
 
-  def move_to_index
+  def back_index
     redirect_to action: :index unless user_signed_in?
   end
   
