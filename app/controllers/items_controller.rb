@@ -15,9 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @category_parent_array = ["カテゴリーを選択"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-   end
+    Category.where(ancestry: nil).each{ |parent| @category_parent_array << parent.name }
   end
 
   def get_category_children
@@ -46,19 +44,13 @@ class ItemsController < ApplicationController
     grandchild_category = @item.category
     child_category = grandchild_category.parent
     @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    Category.where(ancestry: nil).each{ |parent| @category_parent_array << parent.name }
 
     @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
+    Category.where(ancestry: child_category.ancestry).each{ |children| @category_children_array << children }
 
     @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
-    end
+    Category.where(ancestry: grandchild_category.ancestry).each{ |grandchildren| @category_grandchildren_array << grandchildren }
   end
 
   def update
