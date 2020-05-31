@@ -190,6 +190,7 @@ $fontcolor:rgb(143, 142, 142);
     margin: 0 auto;
     color: $fontcolor;
     font-size: 15px;
+    box-shadow: 0 0 8px gray;
     @include sp {
       font-size: 3px;
     };
