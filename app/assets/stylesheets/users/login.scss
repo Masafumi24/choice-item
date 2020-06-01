@@ -1,6 +1,5 @@
 .login {
   @include mainContent;
-  height: 90vh;
   &Box {
     @include centerContent;
     &Title {
