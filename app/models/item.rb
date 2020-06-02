@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
 
   scope :newturn,  -> {order(id: "DESC")}
-  scope :random_order, -> {order("RAND()")}
+  scope :random_order, -> {order(Arel.sql("RAND()"))}
 
   scope :limit_1, -> {limit(1)}
   scope :limit_10, -> {limit(10)}
