@@ -57,14 +57,16 @@
       }
     }
     &Category {
-      width: 70%;
-      margin: 0 auto;
-      margin-bottom: 5%;
+      display: flex;
+      justify-content: space-evenly;
+      width: 50%;
+      margin: 5% auto;
       border-bottom: 1px solid rgb(56, 240, 231);
       &Title {
         @include title;
       }
       &Name {
+        width: 50%;
         color: $fontcolor;
         margin: 2% 0;
         font-size: 20px;

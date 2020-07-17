@@ -34,8 +34,9 @@
       .itemShowBoxCategoryTitle
         カテゴリー
       .itemShowBoxCategoryName
-        = @item.category.parent.parent.name
-      .itemShowBoxCategoryName
-        = @item.category.parent.name
-      .itemShowBoxCategoryName
-        = @item.category.name
+        .itemShowBoxCategoryNameSm
+          = @item.category.parent.parent.name
+        .itemShowBoxCategoryNameSm
+          = @item.category.parent.name
+        .itemShowBoxCategoryNameSm
+          = @item.category.name
