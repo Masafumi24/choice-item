@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   before_action :correct_user, only: [:edit, :update ,:destroy]
 
   def index
-    @items = Item.includes_images_user.new_chart_10
+    @items = Item.index_new_10_get
     @itemsuser = Item.find_by(user_id:(current_user.id)) if user_signed_in?
     @useritems = Item.includes_images.where(user_id:(current_user.id)).new_chart_10 if user_signed_in?
   end
@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @category_parent_array = ["カテゴリーを選択"]
-    Category.where(ancestry: nil).each{ |parent| @category_parent_array << parent.name }
+    Category.category_parent_get(@category_parent_array)
   end
 
   def get_category_children
@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
   end
 
   def allitem
-    @allItem = Item.includes_images.all.newturn
+    @allItem = Item.all_get
   end
 
   def search

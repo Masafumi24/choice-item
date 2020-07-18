@@ -17,7 +17,10 @@ class Item < ApplicationRecord
   scope :random_choice, -> {random_order.limit_1}
 
   scope :includes_images, -> {includes(:images)}
-  scope :includes_images_user, -> {includes(:images, :user)}
+
+  def self.index_new_10_get
+    Item.includes(:images, :user).order(id: "DESC").limit(10)
+  end
 
   def self.search(search)
     if search
@@ -26,5 +29,10 @@ class Item < ApplicationRecord
       Item.all
     end
   end
+
+  def self.all_get
+    Item.includes(:images).all.order(id: "DESC")
+  end
+  
 
 end
