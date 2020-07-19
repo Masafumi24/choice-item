@@ -3,7 +3,7 @@
     = image_tag "whitelogo.png", class:"indexContentImageText"
   = link_to "#smooth" do
     %i.fas.fa-angle-double-down
-- if @itemsuser.present?
+- if @useritems.present?
   .indexUser#smooth
     .indexUserTitle
       = link_to user_path(current_user.id) do

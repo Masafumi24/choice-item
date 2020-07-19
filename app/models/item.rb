@@ -22,6 +22,14 @@ class Item < ApplicationRecord
     Item.includes(:images, :user).order(id: "DESC").limit(10)
   end
 
+  def self.user_items_get(user_bigint)
+    Item.includes(:images).where(user_id:(user_bigint)).order(id: "DESC").limit(10)
+  end
+
+  def self.all_get
+    Item.includes(:images).all.order(id: "DESC")
+  end
+
   def self.search(search)
     if search
       Item.where('name LIKE(?) OR brand LIKE(?) OR status LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%").order(id: "DESC")
@@ -30,9 +38,6 @@ class Item < ApplicationRecord
     end
   end
 
-  def self.all_get
-    Item.includes(:images).all.order(id: "DESC")
-  end
   
 
 end

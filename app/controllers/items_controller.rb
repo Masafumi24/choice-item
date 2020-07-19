@@ -7,8 +7,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.index_new_10_get
-    @itemsuser = Item.find_by(user_id:(current_user.id)) if user_signed_in?
-    @useritems = Item.includes_images.where(user_id:(current_user.id)).new_chart_10 if user_signed_in?
+    @useritems = Item.user_items_get(current_user.id) if user_signed_in?
   end
 
   def new

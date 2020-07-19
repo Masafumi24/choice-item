@@ -27,7 +27,7 @@
           #overlay1
             #modalWindow
               .indexRandomItem
-                - if @itemsuser.present? && @random_spring.present?
+                - if @random_spring.present?
                   -@random_spring.each do |item|
                     =image_tag item.images.first.src.url,class: "indexRandomItemImage"
                 - else
@@ -37,7 +37,7 @@
           #overlay2
             #modalWindow
               .indexRandomItem
-                - if @itemsuser.present? && @random_summer.present?
+                - if @random_summer.present?
                   -@random_summer.each do |item|
                     =image_tag item.images.first.src.url,class: "indexRandomItemImage"
                 - else
@@ -47,7 +47,7 @@
           #overlay3
             #modalWindow
               .indexRandomItem
-                - if @itemsuser.present? && @random_autumn.present?
+                - if @random_autumn.present?
                   -@random_autumn.each do |item|
                     =image_tag item.images.first.src.url,class: "indexRandomItemImage"
                 - else
@@ -57,7 +57,7 @@
           #overlay4
             #modalWindow
               .indexRandomItem
-                - if @itemsuser.present? && @random_winter.present?
+                - if @random_winter.present?
                   -@random_winter.each do |item|
                     =image_tag item.images.first.src.url,class: "indexRandomItemImage"
                 - else
