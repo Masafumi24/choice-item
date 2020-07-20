@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.index_new_10_get
-    @useritems = Item.user_items_get(current_user.id) if user_signed_in?
+    @useritems = Item.user_items_get(current_user.id).limit(10) if user_signed_in?
   end
 
   def new
