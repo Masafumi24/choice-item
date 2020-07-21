@@ -5,9 +5,9 @@ FactoryBot.define do
     status            {"aa"}
     brand             {"aa"}
     spring_id         {1}
-    summer_id         {nil}
+    summer_id         {1}
     autumn_id         {1}
-    winter_id         {nil}
+    winter_id         {1}
     user
     category
     after(:build) do |item|
