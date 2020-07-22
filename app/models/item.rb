@@ -16,8 +16,6 @@ class Item < ApplicationRecord
   scope :new_chart_10, -> {newturn.limit_10}
   scope :random_choice, -> {random_order.limit_1}
 
-  scope :includes_images, -> {includes(:images)}
-
   def self.index_new_10_get
     Item.includes(:images, :user).order(id: "DESC").limit(10)
   end
@@ -32,7 +30,7 @@ class Item < ApplicationRecord
 
   def self.search(search)
     if search
-      Item.where('name LIKE(?) OR brand LIKE(?) OR status LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%").order(id: "DESC")
+      Item.where('name LIKE(?) OR brand LIKE(?) OR status LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%")
     else
       Item.all
     end

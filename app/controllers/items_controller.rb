@@ -71,7 +71,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.search(params[:keyword]).includes_images.newturn
+    @items = Item.search(params[:keyword]).includes(:images).order(id: "DESC")
   end
 
   private
