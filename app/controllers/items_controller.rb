@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   before_action :set_user, only: [:index, :new, :show, :edit, :allitem, :search]
   before_action :correct_user, only: [:edit, :update ,:destroy]
 
+  
   def index
     @items = Item.index_new_10_get
     @useritems = Item.user_items_get(current_user.id).limit(10) if user_signed_in?
